@@ -1,0 +1,897 @@
+The system is: Linux - 5.15.167.4-microsoft-standard-WSL2 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/clang 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/home/crane/dev/mlir_toy/build/CMakeFiles/3.22.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is Clang, found in "/home/crane/dev/mlir_toy/build/CMakeFiles/3.22.1/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_13c83/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_13c83.dir/build.make CMakeFiles/cmTC_13c83.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o
+/usr/bin/clang   -v -MD -MT CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Ubuntu clang version 14.0.0-1ubuntu1.1
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Found CUDA installation: /usr/local/cuda-12.6, version 
+ (in-process)
+ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/llvm-14/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -sys-header-deps -I/usr/local/cuda-12.4/include -I. -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.0/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+clang -cc1 version 14.0.0 based upon LLVM 14.0.0 default target x86_64-pc-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/cuda-12.4/include
+ .
+ /usr/lib/llvm-14/lib/clang/14.0.0/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Linking C executable cmTC_13c83
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13c83.dir/link.txt --verbose=1
+/usr/bin/clang  -v CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -o cmTC_13c83 
+Ubuntu clang version 14.0.0-1ubuntu1.1
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Found CUDA installation: /usr/local/cuda-12.6, version 
+ "/usr/bin/ld" -pie -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_13c83 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/local/cuda-12.4/include]
+    add: [.]
+    add: [/usr/lib/llvm-14/lib/clang/14.0.0/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/local/cuda-12.4/include] ==> [/usr/local/cuda-12.4/include]
+  skipping relative include dir [.]
+  collapse include dir [/usr/lib/llvm-14/lib/clang/14.0.0/include] ==> [/usr/lib/llvm-14/lib/clang/14.0.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/local/cuda-12.4/include;/usr/lib/llvm-14/lib/clang/14.0.0/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_13c83/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_13c83.dir/build.make CMakeFiles/cmTC_13c83.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/clang   -v -MD -MT CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Ubuntu clang version 14.0.0-1ubuntu1.1]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  ignore line: [Found CUDA installation: /usr/local/cuda-12.6  version ]
+  ignore line: [ (in-process)]
+  ignore line: [ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/llvm-14/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -sys-header-deps -I/usr/local/cuda-12.4/include -I. -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.0/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [clang -cc1 version 14.0.0 based upon LLVM 14.0.0 default target x86_64-pc-linux-gnu]
+  ignore line: [ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+  ignore line: [ignoring nonexistent directory "/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/local/cuda-12.4/include]
+  ignore line: [ .]
+  ignore line: [ /usr/lib/llvm-14/lib/clang/14.0.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [Linking C executable cmTC_13c83]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13c83.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/clang  -v CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -o cmTC_13c83 ]
+  ignore line: [Ubuntu clang version 14.0.0-1ubuntu1.1]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  ignore line: [Found CUDA installation: /usr/local/cuda-12.6  version ]
+  link line: [ "/usr/bin/ld" -pie -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_13c83 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_13c83] ==> ignore
+    arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+    arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib/llvm-14/bin/../lib] ==> dir [/usr/lib/llvm-14/bin/../lib]
+    arg [-L/lib] ==> dir [/lib]
+    arg [-L/usr/lib] ==> dir [/usr/lib]
+    arg [CMakeFiles/cmTC_13c83.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+    arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib/llvm-14/bin/../lib] ==> [/usr/lib/llvm-14/lib]
+  collapse library dir [/lib] ==> [/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/usr/lib/llvm-14/lib;/lib;/usr/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e8174/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e8174.dir/build.make CMakeFiles/cmTC_e8174.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/clang++   -v -MD -MT CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Ubuntu clang version 14.0.0-1ubuntu1.1
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Found CUDA installation: /usr/local/cuda-12.6, version 
+ (in-process)
+ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/llvm-14/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/usr/local/cuda-12.4/include -I. -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.0/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 14.0.0 based upon LLVM 14.0.0 default target x86_64-pc-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/cuda-12.4/include
+ .
+ /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11
+ /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11
+ /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward
+ /usr/lib/llvm-14/lib/clang/14.0.0/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+Linking CXX executable cmTC_e8174
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8174.dir/link.txt --verbose=1
+/usr/bin/clang++  -v CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e8174 
+Ubuntu clang version 14.0.0-1ubuntu1.1
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Found CUDA installation: /usr/local/cuda-12.6, version 
+ "/usr/bin/ld" -pie -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e8174 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/local/cuda-12.4/include]
+    add: [.]
+    add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11]
+    add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11]
+    add: [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward]
+    add: [/usr/lib/llvm-14/lib/clang/14.0.0/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/local/cuda-12.4/include] ==> [/usr/local/cuda-12.4/include]
+  skipping relative include dir [.]
+  collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11] ==> [/usr/include/c++/11]
+  collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11] ==> [/usr/include/x86_64-linux-gnu/c++/11]
+  collapse include dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+  collapse include dir [/usr/lib/llvm-14/lib/clang/14.0.0/include] ==> [/usr/lib/llvm-14/lib/clang/14.0.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/local/cuda-12.4/include;/usr/include/c++/11;/usr/include/x86_64-linux-gnu/c++/11;/usr/include/c++/11/backward;/usr/lib/llvm-14/lib/clang/14.0.0/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e8174/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e8174.dir/build.make CMakeFiles/cmTC_e8174.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/clang++   -v -MD -MT CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Ubuntu clang version 14.0.0-1ubuntu1.1]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  ignore line: [Found CUDA installation: /usr/local/cuda-12.6  version ]
+  ignore line: [ (in-process)]
+  ignore line: [ "/usr/lib/llvm-14/bin/clang" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/llvm-14/lib/clang/14.0.0 -dependency-file CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -I/usr/local/cuda-12.4/include -I. -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11 -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward -internal-isystem /usr/lib/llvm-14/lib/clang/14.0.0/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [clang -cc1 version 14.0.0 based upon LLVM 14.0.0 default target x86_64-pc-linux-gnu]
+  ignore line: [ignoring nonexistent directory "/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+  ignore line: [ignoring nonexistent directory "/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/local/cuda-12.4/include]
+  ignore line: [ .]
+  ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11]
+  ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/x86_64-linux-gnu/c++/11]
+  ignore line: [ /usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../include/c++/11/backward]
+  ignore line: [ /usr/lib/llvm-14/lib/clang/14.0.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [Linking CXX executable cmTC_e8174]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8174.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/clang++  -v CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e8174 ]
+  ignore line: [Ubuntu clang version 14.0.0-1ubuntu1.1]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /usr/bin]
+  ignore line: [Found candidate GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Selected GCC installation: /usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+  ignore line: [Candidate multilib: .]
+  ignore line: [@m64]
+  ignore line: [Selected multilib: .]
+  ignore line: [@m64]
+  ignore line: [Found CUDA installation: /usr/local/cuda-12.6  version ]
+  link line: [ "/usr/bin/ld" -pie -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e8174 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11 -L/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+    arg [/usr/bin/ld] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_e8174] ==> ignore
+    arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+    arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11]
+    arg [-L/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64] ==> dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/usr/lib/llvm-14/bin/../lib] ==> dir [/usr/lib/llvm-14/bin/../lib]
+    arg [-L/lib] ==> dir [/lib]
+    arg [-L/usr/lib] ==> dir [/usr/lib]
+    arg [CMakeFiles/cmTC_e8174.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+    arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+  collapse obj [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+  collapse library dir [/usr/bin/../lib/gcc/x86_64-linux-gnu/11/../../../../lib64] ==> [/usr/lib64]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/usr/lib/llvm-14/bin/../lib] ==> [/usr/lib/llvm-14/lib]
+  collapse library dir [/lib] ==> [/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/usr/lib/llvm-14/lib;/lib;/usr/lib]
+  implicit fwks: []
+
+
+Performing C SOURCE FILE Test Terminfo_LINKABLE succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e2ef2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e2ef2.dir/build.make CMakeFiles/cmTC_e2ef2.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e2ef2.dir/src.c.o
+/usr/bin/clang -DTerminfo_LINKABLE   -MD -MT CMakeFiles/cmTC_e2ef2.dir/src.c.o -MF CMakeFiles/cmTC_e2ef2.dir/src.c.o.d -o CMakeFiles/cmTC_e2ef2.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e2ef2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e2ef2.dir/link.txt --verbose=1
+/usr/bin/clang CMakeFiles/cmTC_e2ef2.dir/src.c.o -o cmTC_e2ef2  /usr/lib/x86_64-linux-gnu/libtinfo.so 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+    int setupterm(char *term, int filedes, int *errret);
+    int main(void) { return setupterm(0, 0, 0); }
+Performing C++ SOURCE FILE Test LLVM_LIBSTDCXX_MIN succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e9458/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e9458.dir/build.make CMakeFiles/cmTC_e9458.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e9458.dir/src.cxx.o
+/usr/bin/clang++ -DLLVM_LIBSTDCXX_MIN  -std=c++0x -std=gnu++17 -MD -MT CMakeFiles/cmTC_e9458.dir/src.cxx.o -MF CMakeFiles/cmTC_e9458.dir/src.cxx.o.d -o CMakeFiles/cmTC_e9458.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_e9458
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9458.dir/link.txt --verbose=1
+/usr/bin/clang++   -std=c++0x CMakeFiles/cmTC_e9458.dir/src.cxx.o -o cmTC_e9458 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <iosfwd>
+#if defined(__GLIBCXX__)
+#if !defined(_GLIBCXX_RELEASE) || _GLIBCXX_RELEASE < 7
+#error Unsupported libstdc++ version
+#endif
+#endif
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test LLVM_LIBSTDCXX_SOFT_ERROR succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a4c81/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a4c81.dir/build.make CMakeFiles/cmTC_a4c81.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a4c81.dir/src.cxx.o
+/usr/bin/clang++ -DLLVM_LIBSTDCXX_SOFT_ERROR  -std=c++0x -std=gnu++17 -MD -MT CMakeFiles/cmTC_a4c81.dir/src.cxx.o -MF CMakeFiles/cmTC_a4c81.dir/src.cxx.o.d -o CMakeFiles/cmTC_a4c81.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a4c81
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4c81.dir/link.txt --verbose=1
+/usr/bin/clang++   -std=c++0x CMakeFiles/cmTC_a4c81.dir/src.cxx.o -o cmTC_a4c81 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <iosfwd>
+#if defined(__GLIBCXX__)
+#if !defined(_GLIBCXX_RELEASE) || _GLIBCXX_RELEASE < 7
+#error Unsupported libstdc++ version
+#endif
+#endif
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_SUPPORTS_FPIC succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_49d5c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_49d5c.dir/build.make CMakeFiles/cmTC_49d5c.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49d5c.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_FPIC  -Werror -fPIC -MD -MT CMakeFiles/cmTC_49d5c.dir/src.c.o -MF CMakeFiles/cmTC_49d5c.dir/src.c.o.d -o CMakeFiles/cmTC_49d5c.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_49d5c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49d5c.dir/link.txt --verbose=1
+/usr/bin/clang CMakeFiles/cmTC_49d5c.dir/src.c.o -o cmTC_49d5c 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FPIC succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a443e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a443e.dir/build.make CMakeFiles/cmTC_a443e.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a443e.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_FPIC  -Werror -fPIC -std=gnu++17 -MD -MT CMakeFiles/cmTC_a443e.dir/src.cxx.o -MF CMakeFiles/cmTC_a443e.dir/src.cxx.o.d -o CMakeFiles/cmTC_a443e.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a443e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a443e.dir/link.txt --verbose=1
+/usr/bin/clang++ CMakeFiles/cmTC_a443e.dir/src.cxx.o -o cmTC_a443e 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_SEMANTIC_INTERPOSITION succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a416c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a416c.dir/build.make CMakeFiles/cmTC_a416c.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a416c.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC    -Werror -fno-semantic-interposition -MD -MT CMakeFiles/cmTC_a416c.dir/src.c.o -MF CMakeFiles/cmTC_a416c.dir/src.c.o.d -o CMakeFiles/cmTC_a416c.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_a416c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a416c.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC  CMakeFiles/cmTC_a416c.dir/src.c.o -o cmTC_a416c 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cbe6f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cbe6f.dir/build.make CMakeFiles/cmTC_cbe6f.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cbe6f.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC    -Werror -fno-semantic-interposition -std=gnu++17 -MD -MT CMakeFiles/cmTC_cbe6f.dir/src.cxx.o -MF CMakeFiles/cmTC_cbe6f.dir/src.cxx.o.d -o CMakeFiles/cmTC_cbe6f.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_cbe6f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cbe6f.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC  CMakeFiles/cmTC_cbe6f.dir/src.cxx.o -o cmTC_cbe6f 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_942e0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_942e0.dir/build.make CMakeFiles/cmTC_942e0.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_942e0.dir/src.cxx.o
+/usr/bin/clang++ -DSUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG  -fPIC -fno-semantic-interposition    -fvisibility-inlines-hidden -std=gnu++17 -MD -MT CMakeFiles/cmTC_942e0.dir/src.cxx.o -MF CMakeFiles/cmTC_942e0.dir/src.cxx.o.d -o CMakeFiles/cmTC_942e0.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_942e0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_942e0.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition  CMakeFiles/cmTC_942e0.dir/src.cxx.o -o cmTC_942e0 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_WERROR_DATE_TIME succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_35664/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_35664.dir/build.make CMakeFiles/cmTC_35664.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_35664.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_WERROR_DATE_TIME  -fPIC -fno-semantic-interposition    -Werror -Werror=date-time -MD -MT CMakeFiles/cmTC_35664.dir/src.c.o -MF CMakeFiles/cmTC_35664.dir/src.c.o.d -o CMakeFiles/cmTC_35664.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_35664
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35664.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition  CMakeFiles/cmTC_35664.dir/src.c.o -o cmTC_35664 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_WERROR_DATE_TIME succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_88bd4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_88bd4.dir/build.make CMakeFiles/cmTC_88bd4.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_88bd4.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_WERROR_DATE_TIME  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden    -Werror -Werror=date-time -std=gnu++17 -MD -MT CMakeFiles/cmTC_88bd4.dir/src.cxx.o -MF CMakeFiles/cmTC_88bd4.dir/src.cxx.o.d -o CMakeFiles/cmTC_88bd4.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_88bd4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_88bd4.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden  CMakeFiles/cmTC_88bd4.dir/src.cxx.o -o cmTC_88bd4 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d872e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d872e.dir/build.make CMakeFiles/cmTC_d872e.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d872e.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW  -fPIC -fno-semantic-interposition -Werror=date-time    -Werror -Werror=unguarded-availability-new -MD -MT CMakeFiles/cmTC_d872e.dir/src.c.o -MF CMakeFiles/cmTC_d872e.dir/src.c.o.d -o CMakeFiles/cmTC_d872e.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d872e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d872e.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time  CMakeFiles/cmTC_d872e.dir/src.c.o -o cmTC_d872e 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f2821/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f2821.dir/build.make CMakeFiles/cmTC_f2821.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f2821.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time    -Werror -Werror=unguarded-availability-new -std=gnu++17 -MD -MT CMakeFiles/cmTC_f2821.dir/src.cxx.o -MF CMakeFiles/cmTC_f2821.dir/src.cxx.o.d -o CMakeFiles/cmTC_f2821.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f2821
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2821.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time  CMakeFiles/cmTC_f2821.dir/src.cxx.o -o cmTC_f2821 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c3ae5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c3ae5.dir/build.make CMakeFiles/cmTC_c3ae5.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c3ae5.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual    -Wmissing-field-initializers -std=gnu++17 -MD -MT CMakeFiles/cmTC_c3ae5.dir/src.cxx.o -MF CMakeFiles/cmTC_c3ae5.dir/src.cxx.o.d -o CMakeFiles/cmTC_c3ae5.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c3ae5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3ae5.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual  CMakeFiles/cmTC_c3ae5.dir/src.cxx.o -o cmTC_c3ae5 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_892af/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_892af.dir/build.make CMakeFiles/cmTC_892af.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_892af.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers    -Werror -Wimplicit-fallthrough -MD -MT CMakeFiles/cmTC_892af.dir/src.c.o -MF CMakeFiles/cmTC_892af.dir/src.c.o.d -o CMakeFiles/cmTC_892af.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_892af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_892af.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers  CMakeFiles/cmTC_892af.dir/src.c.o -o cmTC_892af 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4fe5a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4fe5a.dir/build.make CMakeFiles/cmTC_4fe5a.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4fe5a.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers    -Werror -Wimplicit-fallthrough -std=gnu++17 -MD -MT CMakeFiles/cmTC_4fe5a.dir/src.cxx.o -MF CMakeFiles/cmTC_4fe5a.dir/src.cxx.o.d -o CMakeFiles/cmTC_4fe5a.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_4fe5a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4fe5a.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers  CMakeFiles/cmTC_4fe5a.dir/src.cxx.o -o cmTC_4fe5a 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9a205/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9a205.dir/build.make CMakeFiles/cmTC_9a205.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9a205.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough    -Werror -Wcovered-switch-default -MD -MT CMakeFiles/cmTC_9a205.dir/src.c.o -MF CMakeFiles/cmTC_9a205.dir/src.c.o.d -o CMakeFiles/cmTC_9a205.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9a205
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a205.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough  CMakeFiles/cmTC_9a205.dir/src.c.o -o cmTC_9a205 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_43b66/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_43b66.dir/build.make CMakeFiles/cmTC_43b66.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_43b66.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough    -Werror -Wcovered-switch-default -std=gnu++17 -MD -MT CMakeFiles/cmTC_43b66.dir/src.cxx.o -MF CMakeFiles/cmTC_43b66.dir/src.cxx.o.d -o CMakeFiles/cmTC_43b66.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_43b66
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43b66.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough  CMakeFiles/cmTC_43b66.dir/src.cxx.o -o cmTC_43b66 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_NOEXCEPT_TYPE_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bdeff/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bdeff.dir/build.make CMakeFiles/cmTC_bdeff.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bdeff.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_NOEXCEPT_TYPE_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default    -Wnoexcept-type -std=gnu++17 -MD -MT CMakeFiles/cmTC_bdeff.dir/src.cxx.o -MF CMakeFiles/cmTC_bdeff.dir/src.cxx.o.d -o CMakeFiles/cmTC_bdeff.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_bdeff
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdeff.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  CMakeFiles/cmTC_bdeff.dir/src.cxx.o -o cmTC_bdeff 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_584cd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_584cd.dir/build.make CMakeFiles/cmTC_584cd.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_584cd.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type  -Werror=non-virtual-dtor -std=gnu++17 -MD -MT CMakeFiles/cmTC_584cd.dir/src.cxx.o -MF CMakeFiles/cmTC_584cd.dir/src.cxx.o.d -o CMakeFiles/cmTC_584cd.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_584cd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_584cd.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type  -Werror=non-virtual-dtor CMakeFiles/cmTC_584cd.dir/src.cxx.o -o cmTC_584cd 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+class f {};
+                             class base {friend f; public: virtual void anchor();protected: ~base();};
+                             int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_SUGGEST_OVERRIDE_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8ffd5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8ffd5.dir/build.make CMakeFiles/cmTC_8ffd5.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8ffd5.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_SUGGEST_OVERRIDE_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor    -Wsuggest-override -std=gnu++17 -MD -MT CMakeFiles/cmTC_8ffd5.dir/src.cxx.o -MF CMakeFiles/cmTC_8ffd5.dir/src.cxx.o.d -o CMakeFiles/cmTC_8ffd5.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_8ffd5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ffd5.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor  CMakeFiles/cmTC_8ffd5.dir/src.cxx.o -o cmTC_8ffd5 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_WSUGGEST_OVERRIDE_ALLOWS_ONLY_FINAL succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a9387/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a9387.dir/build.make CMakeFiles/cmTC_a9387.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a9387.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_WSUGGEST_OVERRIDE_ALLOWS_ONLY_FINAL  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor  -Werror=suggest-override -std=gnu++17 -MD -MT CMakeFiles/cmTC_a9387.dir/src.cxx.o -MF CMakeFiles/cmTC_a9387.dir/src.cxx.o.d -o CMakeFiles/cmTC_a9387.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx:1:7: warning: 'base' has virtual functions but non-virtual destructor [-Wnon-virtual-dtor]
+class base {public: virtual void anchor();};
+      ^
+/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx:2:38: warning: 'derived' has virtual functions but non-virtual destructor [-Wnon-virtual-dtor]
+                               class derived : base {public: void anchor() final;};
+                                     ^
+2 warnings generated.
+Linking CXX executable cmTC_a9387
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9387.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor  -Werror=suggest-override CMakeFiles/cmTC_a9387.dir/src.cxx.o -o cmTC_a9387 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+class base {public: virtual void anchor();};
+                               class derived : base {public: void anchor() final;};
+                               int main() { return 0; }
+Performing C SOURCE FILE Test C_WCOMMENT_ALLOWS_LINE_WRAP succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9b03e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9b03e.dir/build.make CMakeFiles/cmTC_9b03e.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b03e.dir/src.c.o
+/usr/bin/clang -DC_WCOMMENT_ALLOWS_LINE_WRAP  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -Werror -Wcomment -MD -MT CMakeFiles/cmTC_9b03e.dir/src.c.o -MF CMakeFiles/cmTC_9b03e.dir/src.c.o.d -o CMakeFiles/cmTC_9b03e.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9b03e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b03e.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -Werror -Wcomment CMakeFiles/cmTC_9b03e.dir/src.c.o -o cmTC_9b03e 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+// \
+//
+int main(void) {return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_STRING_CONVERSION_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ddce2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ddce2.dir/build.make CMakeFiles/cmTC_ddce2.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ddce2.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_STRING_CONVERSION_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default    -Werror -Wstring-conversion -MD -MT CMakeFiles/cmTC_ddce2.dir/src.c.o -MF CMakeFiles/cmTC_ddce2.dir/src.c.o.d -o CMakeFiles/cmTC_ddce2.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ddce2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ddce2.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  CMakeFiles/cmTC_ddce2.dir/src.c.o -o cmTC_ddce2 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_STRING_CONVERSION_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9ac0e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9ac0e.dir/build.make CMakeFiles/cmTC_9ac0e.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9ac0e.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_STRING_CONVERSION_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override    -Werror -Wstring-conversion -std=gnu++17 -MD -MT CMakeFiles/cmTC_9ac0e.dir/src.cxx.o -MF CMakeFiles/cmTC_9ac0e.dir/src.cxx.o.d -o CMakeFiles/cmTC_9ac0e.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_9ac0e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ac0e.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override  CMakeFiles/cmTC_9ac0e.dir/src.cxx.o -o cmTC_9ac0e 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_MISLEADING_INDENTATION_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3cd40/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3cd40.dir/build.make CMakeFiles/cmTC_3cd40.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3cd40.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_MISLEADING_INDENTATION_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion    -Werror -Wmisleading-indentation -MD -MT CMakeFiles/cmTC_3cd40.dir/src.c.o -MF CMakeFiles/cmTC_3cd40.dir/src.c.o.d -o CMakeFiles/cmTC_3cd40.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_3cd40
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3cd40.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion  CMakeFiles/cmTC_3cd40.dir/src.c.o -o cmTC_3cd40 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_MISLEADING_INDENTATION_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_63f24/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_63f24.dir/build.make CMakeFiles/cmTC_63f24.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_63f24.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_MISLEADING_INDENTATION_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion    -Werror -Wmisleading-indentation -std=gnu++17 -MD -MT CMakeFiles/cmTC_63f24.dir/src.cxx.o -MF CMakeFiles/cmTC_63f24.dir/src.cxx.o.d -o CMakeFiles/cmTC_63f24.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_63f24
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63f24.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion  CMakeFiles/cmTC_63f24.dir/src.cxx.o -o cmTC_63f24 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c436e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c436e.dir/build.make CMakeFiles/cmTC_c436e.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c436e.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation    -Werror -Wctad-maybe-unsupported -MD -MT CMakeFiles/cmTC_c436e.dir/src.c.o -MF CMakeFiles/cmTC_c436e.dir/src.c.o.d -o CMakeFiles/cmTC_c436e.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_c436e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c436e.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation  CMakeFiles/cmTC_c436e.dir/src.c.o -o cmTC_c436e 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_de603/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_de603.dir/build.make CMakeFiles/cmTC_de603.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_de603.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion -Wmisleading-indentation    -Werror -Wctad-maybe-unsupported -std=gnu++17 -MD -MT CMakeFiles/cmTC_de603.dir/src.cxx.o -MF CMakeFiles/cmTC_de603.dir/src.cxx.o.d -o CMakeFiles/cmTC_de603.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_de603
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de603.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion -Wmisleading-indentation  CMakeFiles/cmTC_de603.dir/src.cxx.o -o cmTC_de603 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_FUNCTION_SECTIONS succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_45bfc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_45bfc.dir/build.make CMakeFiles/cmTC_45bfc.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_45bfc.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_FNO_FUNCTION_SECTIONS  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported    -Werror -fno-function-sections -MD -MT CMakeFiles/cmTC_45bfc.dir/src.c.o -MF CMakeFiles/cmTC_45bfc.dir/src.c.o.d -o CMakeFiles/cmTC_45bfc.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_45bfc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_45bfc.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported  CMakeFiles/cmTC_45bfc.dir/src.c.o -o cmTC_45bfc 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_FFUNCTION_SECTIONS succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e6d4a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e6d4a.dir/build.make CMakeFiles/cmTC_e6d4a.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6d4a.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_FFUNCTION_SECTIONS  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported    -Werror -ffunction-sections -MD -MT CMakeFiles/cmTC_e6d4a.dir/src.c.o -MF CMakeFiles/cmTC_e6d4a.dir/src.c.o.d -o CMakeFiles/cmTC_e6d4a.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e6d4a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e6d4a.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported  CMakeFiles/cmTC_e6d4a.dir/src.c.o -o cmTC_e6d4a 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FFUNCTION_SECTIONS succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b3cfa/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b3cfa.dir/build.make CMakeFiles/cmTC_b3cfa.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b3cfa.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_FFUNCTION_SECTIONS  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported    -Werror -ffunction-sections -std=gnu++17 -MD -MT CMakeFiles/cmTC_b3cfa.dir/src.cxx.o -MF CMakeFiles/cmTC_b3cfa.dir/src.cxx.o.d -o CMakeFiles/cmTC_b3cfa.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b3cfa
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3cfa.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported  CMakeFiles/cmTC_b3cfa.dir/src.cxx.o -o cmTC_b3cfa 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_FDATA_SECTIONS succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_74e4f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_74e4f.dir/build.make CMakeFiles/cmTC_74e4f.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_74e4f.dir/src.c.o
+/usr/bin/clang -DC_SUPPORTS_FDATA_SECTIONS  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported -ffunction-sections    -Werror -fdata-sections -MD -MT CMakeFiles/cmTC_74e4f.dir/src.c.o -MF CMakeFiles/cmTC_74e4f.dir/src.c.o.d -o CMakeFiles/cmTC_74e4f.dir/src.c.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_74e4f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74e4f.dir/link.txt --verbose=1
+/usr/bin/clang  -fPIC -fno-semantic-interposition -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported -ffunction-sections  CMakeFiles/cmTC_74e4f.dir/src.c.o -o cmTC_74e4f 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FDATA_SECTIONS succeeded with the following output:
+Change Dir: /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cc659/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cc659.dir/build.make CMakeFiles/cmTC_cc659.dir/build
+gmake[1]: Entering directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cc659.dir/src.cxx.o
+/usr/bin/clang++ -DCXX_SUPPORTS_FDATA_SECTIONS  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported -ffunction-sections    -Werror -fdata-sections -std=gnu++17 -MD -MT CMakeFiles/cmTC_cc659.dir/src.cxx.o -MF CMakeFiles/cmTC_cc659.dir/src.cxx.o.d -o CMakeFiles/cmTC_cc659.dir/src.cxx.o -c /home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_cc659
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc659.dir/link.txt --verbose=1
+/usr/bin/clang++  -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported -ffunction-sections  CMakeFiles/cmTC_cc659.dir/src.cxx.o -o cmTC_cc659 
+gmake[1]: Leaving directory '/home/crane/dev/mlir_toy/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
