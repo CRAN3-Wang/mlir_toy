@@ -221,17 +221,17 @@ mlir-doc/fast:
 .PHONY : mlir-doc/fast
 
 #=============================================================================
-# Target rules for targets named ch1_io
+# Target rules for targets named toyc
 
 # Build rule for target.
-ch1_io: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ch1_io
-.PHONY : ch1_io
+toyc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toyc
+.PHONY : toyc
 
 # fast build rule for target.
-ch1_io/fast:
-	$(MAKE) $(MAKESILENT) -f ch1_io/CMakeFiles/ch1_io.dir/build.make ch1_io/CMakeFiles/ch1_io.dir/build
-.PHONY : ch1_io/fast
+toyc/fast:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/build
+.PHONY : toyc/fast
 
 # Help Target
 help:
@@ -249,7 +249,7 @@ help:
 	@echo "... mlir-headers"
 	@echo "... mlir-tablegen-targets"
 	@echo "... omp_gen"
-	@echo "... ch1_io"
+	@echo "... toyc"
 .PHONY : help
 
 

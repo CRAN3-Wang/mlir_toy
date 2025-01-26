@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /home/crane/dev/mlir_toy/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: ch1_io/all
+all: toy/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: ch1_io/preinstall
+preinstall: toy/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -79,23 +79,23 @@ clean: CMakeFiles/mlir-tablegen-targets.dir/clean
 clean: CMakeFiles/mlir-headers.dir/clean
 clean: CMakeFiles/mlir-generic-headers.dir/clean
 clean: CMakeFiles/mlir-doc.dir/clean
-clean: ch1_io/clean
+clean: toy/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory ch1_io
+# Directory level rules for directory toy
 
 # Recursive "all" directory target.
-ch1_io/all: ch1_io/CMakeFiles/ch1_io.dir/all
-.PHONY : ch1_io/all
+toy/all: toy/CMakeFiles/toyc.dir/all
+.PHONY : toy/all
 
 # Recursive "preinstall" directory target.
-ch1_io/preinstall:
-.PHONY : ch1_io/preinstall
+toy/preinstall:
+.PHONY : toy/preinstall
 
 # Recursive "clean" directory target.
-ch1_io/clean: ch1_io/CMakeFiles/ch1_io.dir/clean
-.PHONY : ch1_io/clean
+toy/clean: toy/CMakeFiles/toyc.dir/clean
+.PHONY : toy/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/intrinsics_gen.dir
@@ -306,30 +306,30 @@ CMakeFiles/mlir-doc.dir/clean:
 .PHONY : CMakeFiles/mlir-doc.dir/clean
 
 #=============================================================================
-# Target rules for target ch1_io/CMakeFiles/ch1_io.dir
+# Target rules for target toy/CMakeFiles/toyc.dir
 
 # All Build rule for target.
-ch1_io/CMakeFiles/ch1_io.dir/all:
-	$(MAKE) $(MAKESILENT) -f ch1_io/CMakeFiles/ch1_io.dir/build.make ch1_io/CMakeFiles/ch1_io.dir/depend
-	$(MAKE) $(MAKESILENT) -f ch1_io/CMakeFiles/ch1_io.dir/build.make ch1_io/CMakeFiles/ch1_io.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=1,2 "Built target ch1_io"
-.PHONY : ch1_io/CMakeFiles/ch1_io.dir/all
+toy/CMakeFiles/toyc.dir/all:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/depend
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=1,2,3 "Built target toyc"
+.PHONY : toy/CMakeFiles/toyc.dir/all
 
 # Build rule for subdir invocation for target.
-ch1_io/CMakeFiles/ch1_io.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ch1_io/CMakeFiles/ch1_io.dir/all
+toy/CMakeFiles/toyc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/toyc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 0
-.PHONY : ch1_io/CMakeFiles/ch1_io.dir/rule
+.PHONY : toy/CMakeFiles/toyc.dir/rule
 
 # Convenience name for target.
-ch1_io: ch1_io/CMakeFiles/ch1_io.dir/rule
-.PHONY : ch1_io
+toyc: toy/CMakeFiles/toyc.dir/rule
+.PHONY : toyc
 
 # clean rule for target.
-ch1_io/CMakeFiles/ch1_io.dir/clean:
-	$(MAKE) $(MAKESILENT) -f ch1_io/CMakeFiles/ch1_io.dir/build.make ch1_io/CMakeFiles/ch1_io.dir/clean
-.PHONY : ch1_io/CMakeFiles/ch1_io.dir/clean
+toy/CMakeFiles/toyc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/clean
+.PHONY : toy/CMakeFiles/toyc.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

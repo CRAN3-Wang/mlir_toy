@@ -117,6 +117,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+toy/CMakeFiles/OpsIncGen.dir/rule:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/OpsIncGen.dir/rule
+.PHONY : toy/CMakeFiles/OpsIncGen.dir/rule
+
+# Convenience name for target.
+OpsIncGen: toy/CMakeFiles/OpsIncGen.dir/rule
+.PHONY : OpsIncGen
+
+# fast build rule for target.
+OpsIncGen/fast:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/OpsIncGen.dir/build.make toy/CMakeFiles/OpsIncGen.dir/build
+.PHONY : OpsIncGen/fast
+
+# Convenience name for target.
 toy/CMakeFiles/toyc.dir/rule:
 	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/toyc.dir/rule
 .PHONY : toy/CMakeFiles/toyc.dir/rule
@@ -154,6 +168,54 @@ src/AST.cpp.s:
 	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/AST.cpp.s
 .PHONY : src/AST.cpp.s
 
+src/Dialect.o: src/Dialect.cpp.o
+.PHONY : src/Dialect.o
+
+# target to build an object file
+src/Dialect.cpp.o:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/Dialect.cpp.o
+.PHONY : src/Dialect.cpp.o
+
+src/Dialect.i: src/Dialect.cpp.i
+.PHONY : src/Dialect.i
+
+# target to preprocess a source file
+src/Dialect.cpp.i:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/Dialect.cpp.i
+.PHONY : src/Dialect.cpp.i
+
+src/Dialect.s: src/Dialect.cpp.s
+.PHONY : src/Dialect.s
+
+# target to generate assembly for a file
+src/Dialect.cpp.s:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/Dialect.cpp.s
+.PHONY : src/Dialect.cpp.s
+
+src/MLIRGen.o: src/MLIRGen.cpp.o
+.PHONY : src/MLIRGen.o
+
+# target to build an object file
+src/MLIRGen.cpp.o:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/MLIRGen.cpp.o
+.PHONY : src/MLIRGen.cpp.o
+
+src/MLIRGen.i: src/MLIRGen.cpp.i
+.PHONY : src/MLIRGen.i
+
+# target to preprocess a source file
+src/MLIRGen.cpp.i:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/MLIRGen.cpp.i
+.PHONY : src/MLIRGen.cpp.i
+
+src/MLIRGen.s: src/MLIRGen.cpp.s
+.PHONY : src/MLIRGen.s
+
+# target to generate assembly for a file
+src/MLIRGen.cpp.s:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/MLIRGen.cpp.s
+.PHONY : src/MLIRGen.cpp.s
+
 src/toyc.o: src/toyc.cpp.o
 .PHONY : src/toyc.o
 
@@ -186,10 +248,17 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... OpsIncGen"
 	@echo "... toyc"
 	@echo "... src/AST.o"
 	@echo "... src/AST.i"
 	@echo "... src/AST.s"
+	@echo "... src/Dialect.o"
+	@echo "... src/Dialect.i"
+	@echo "... src/Dialect.s"
+	@echo "... src/MLIRGen.o"
+	@echo "... src/MLIRGen.i"
+	@echo "... src/MLIRGen.s"
 	@echo "... src/toyc.o"
 	@echo "... src/toyc.i"
 	@echo "... src/toyc.s"

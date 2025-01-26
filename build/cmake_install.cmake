@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/crane/dev/mlir_toy/build/ch1_io/cmake_install.cmake")
+  include("/home/crane/dev/mlir_toy/build/toy/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
