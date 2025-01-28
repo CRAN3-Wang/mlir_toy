@@ -255,6 +255,9 @@ void AddOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mlir:
   return verifyInvariantsImpl();
 }
 
+void AddOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects) {
+}
+
 } // namespace toy
 } // namespace mlir
 MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::toy::AddOp)
@@ -1389,6 +1392,9 @@ void MulOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mlir:
   return verifyInvariantsImpl();
 }
 
+void MulOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects) {
+}
+
 } // namespace toy
 } // namespace mlir
 MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::toy::MulOp)
@@ -1698,6 +1704,9 @@ void ReshapeOp::print(::mlir::OpAsmPrinter &_odsPrinter) {
   _odsPrinter << ' ' << "to";
   _odsPrinter << ' ';
   _odsPrinter << getOperation()->getResultTypes();
+}
+
+void ReshapeOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects) {
 }
 
 } // namespace toy
@@ -2034,6 +2043,9 @@ void TransposeOp::print(::mlir::OpAsmPrinter &_odsPrinter) {
   _odsPrinter << ' ' << "to";
   _odsPrinter << ' ';
   _odsPrinter << getOperation()->getResultTypes();
+}
+
+void TransposeOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects) {
 }
 
 } // namespace toy

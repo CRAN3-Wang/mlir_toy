@@ -33,7 +33,7 @@
 using namespace mlir;
 using namespace mlir::toy;
 
-#include "Dialect.cpp.inc"
+#include "src/Dialect.cpp.inc"
 
 //===----------------------------------------------------------------------===//
 // ToyDialect
@@ -44,7 +44,7 @@ using namespace mlir::toy;
 void ToyDialect::initialize() {
   addOperations<
 #define GET_OP_LIST
-#include "Ops.cpp.inc"
+#include "src/Ops.cpp.inc"
       >();
 }
 
@@ -320,4 +320,4 @@ mlir::LogicalResult TransposeOp::verify() {
 //===----------------------------------------------------------------------===//
 
 #define GET_OP_CLASSES
-#include "Ops.cpp.inc"
+#include "src/Ops.cpp.inc"

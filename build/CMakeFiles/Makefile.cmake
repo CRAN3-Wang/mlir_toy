@@ -98,5 +98,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/mlir-generic-headers.dir/DependInfo.cmake"
   "CMakeFiles/mlir-doc.dir/DependInfo.cmake"
   "toy/CMakeFiles/OpsIncGen.dir/DependInfo.cmake"
+  "toy/CMakeFiles/ToyCombineIncGen.dir/DependInfo.cmake"
   "toy/CMakeFiles/toyc.dir/DependInfo.cmake"
   )

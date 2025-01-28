@@ -234,6 +234,19 @@ OpsIncGen/fast:
 .PHONY : OpsIncGen/fast
 
 #=============================================================================
+# Target rules for targets named ToyCombineIncGen
+
+# Build rule for target.
+ToyCombineIncGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ToyCombineIncGen
+.PHONY : ToyCombineIncGen
+
+# fast build rule for target.
+ToyCombineIncGen/fast:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ToyCombineIncGen.dir/build.make toy/CMakeFiles/ToyCombineIncGen.dir/build
+.PHONY : ToyCombineIncGen/fast
+
+#=============================================================================
 # Target rules for targets named toyc
 
 # Build rule for target.
@@ -256,6 +269,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... OpsIncGen"
 	@echo "... RISCVTargetParserTableGen"
+	@echo "... ToyCombineIncGen"
 	@echo "... acc_gen"
 	@echo "... intrinsics_gen"
 	@echo "... mlir-doc"

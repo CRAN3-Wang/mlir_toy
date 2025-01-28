@@ -131,6 +131,20 @@ OpsIncGen/fast:
 .PHONY : OpsIncGen/fast
 
 # Convenience name for target.
+toy/CMakeFiles/ToyCombineIncGen.dir/rule:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/ToyCombineIncGen.dir/rule
+.PHONY : toy/CMakeFiles/ToyCombineIncGen.dir/rule
+
+# Convenience name for target.
+ToyCombineIncGen: toy/CMakeFiles/ToyCombineIncGen.dir/rule
+.PHONY : ToyCombineIncGen
+
+# fast build rule for target.
+ToyCombineIncGen/fast:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ToyCombineIncGen.dir/build.make toy/CMakeFiles/ToyCombineIncGen.dir/build
+.PHONY : ToyCombineIncGen/fast
+
+# Convenience name for target.
 toy/CMakeFiles/toyc.dir/rule:
 	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/toyc.dir/rule
 .PHONY : toy/CMakeFiles/toyc.dir/rule
@@ -216,6 +230,30 @@ src/MLIRGen.cpp.s:
 	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/MLIRGen.cpp.s
 .PHONY : src/MLIRGen.cpp.s
 
+src/ToyCombine.o: src/ToyCombine.cpp.o
+.PHONY : src/ToyCombine.o
+
+# target to build an object file
+src/ToyCombine.cpp.o:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/ToyCombine.cpp.o
+.PHONY : src/ToyCombine.cpp.o
+
+src/ToyCombine.i: src/ToyCombine.cpp.i
+.PHONY : src/ToyCombine.i
+
+# target to preprocess a source file
+src/ToyCombine.cpp.i:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/ToyCombine.cpp.i
+.PHONY : src/ToyCombine.cpp.i
+
+src/ToyCombine.s: src/ToyCombine.cpp.s
+.PHONY : src/ToyCombine.s
+
+# target to generate assembly for a file
+src/ToyCombine.cpp.s:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/ToyCombine.cpp.s
+.PHONY : src/ToyCombine.cpp.s
+
 src/toyc.o: src/toyc.cpp.o
 .PHONY : src/toyc.o
 
@@ -249,6 +287,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... OpsIncGen"
+	@echo "... ToyCombineIncGen"
 	@echo "... toyc"
 	@echo "... src/AST.o"
 	@echo "... src/AST.i"
@@ -259,6 +298,9 @@ help:
 	@echo "... src/MLIRGen.o"
 	@echo "... src/MLIRGen.i"
 	@echo "... src/MLIRGen.s"
+	@echo "... src/ToyCombine.o"
+	@echo "... src/ToyCombine.i"
+	@echo "... src/ToyCombine.s"
 	@echo "... src/toyc.o"
 	@echo "... src/toyc.i"
 	@echo "... src/toyc.s"

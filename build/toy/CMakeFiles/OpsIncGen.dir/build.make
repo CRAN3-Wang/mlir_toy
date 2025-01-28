@@ -77,6 +77,7 @@ toy/CMakeFiles/OpsIncGen: toy/generated/src/Dialect.cpp.inc
 
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/include/Dialect.h.inc: ../toy/Ops.td
+toy/generated/include/Dialect.h.inc: ../toy/ToyCombine.td
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Frontend/Directive/DirectiveBase.td
@@ -122,10 +123,11 @@ toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/inclu
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Target/TargetSelectionDAG.td
 toy/generated/include/Dialect.h.inc: ../toy/Ops.td
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building generated/include/Dialect.h.inc..."
-	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-dialect-decls -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated/include -I/home/crane/dev/mlir_toy/build/toy/generated/src /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/include/Dialect.h.inc
+	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-dialect-decls -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/include/Dialect.h.inc
 
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/include/Ops.h.inc: ../toy/Ops.td
+toy/generated/include/Ops.h.inc: ../toy/ToyCombine.td
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Frontend/Directive/DirectiveBase.td
@@ -171,10 +173,11 @@ toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/include/l
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Target/TargetSelectionDAG.td
 toy/generated/include/Ops.h.inc: ../toy/Ops.td
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building generated/include/Ops.h.inc..."
-	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-op-decls -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated/include -I/home/crane/dev/mlir_toy/build/toy/generated/src /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/include/Ops.h.inc
+	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-op-decls -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/include/Ops.h.inc
 
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/src/Dialect.cpp.inc: ../toy/Ops.td
+toy/generated/src/Dialect.cpp.inc: ../toy/ToyCombine.td
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Frontend/Directive/DirectiveBase.td
@@ -220,10 +223,11 @@ toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/include
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Target/TargetSelectionDAG.td
 toy/generated/src/Dialect.cpp.inc: ../toy/Ops.td
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building generated/src/Dialect.cpp.inc..."
-	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-dialect-defs -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated/include -I/home/crane/dev/mlir_toy/build/toy/generated/src /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/src/Dialect.cpp.inc
+	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-dialect-defs -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/src/Dialect.cpp.inc
 
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/src/Ops.cpp.inc: ../toy/Ops.td
+toy/generated/src/Ops.cpp.inc: ../toy/ToyCombine.td
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Frontend/Directive/DirectiveBase.td
@@ -269,7 +273,7 @@ toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llv
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/Target/TargetSelectionDAG.td
 toy/generated/src/Ops.cpp.inc: ../toy/Ops.td
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building generated/src/Ops.cpp.inc..."
-	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-op-defs -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated/include -I/home/crane/dev/mlir_toy/build/toy/generated/src /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/src/Ops.cpp.inc
+	cd /home/crane/dev/mlir_toy/build/toy && /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen -gen-op-defs -I /home/crane/dev/mlir_toy/toy -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir-tutorial/install/include -I/home/crane/dev/mlir_toy/toy/include -I/home/crane/dev/mlir_toy/build/toy/generated /home/crane/dev/mlir_toy/toy/Ops.td --write-if-changed -o /home/crane/dev/mlir_toy/build/toy/generated/src/Ops.cpp.inc
 
 OpsIncGen: toy/CMakeFiles/OpsIncGen
 OpsIncGen: toy/generated/include/Dialect.h.inc

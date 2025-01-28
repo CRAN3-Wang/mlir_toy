@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/OpsIncGen"
+  "generated/ToyCombine.inc"
   "generated/include/Dialect.h.inc"
   "generated/include/Ops.h.inc"
   "generated/src/Dialect.cpp.inc"
