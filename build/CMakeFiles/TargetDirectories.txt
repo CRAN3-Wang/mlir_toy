@@ -8,6 +8,7 @@
 /home/crane/dev/mlir_toy/build/CMakeFiles/mlir-doc.dir
 /home/crane/dev/mlir_toy/build/CMakeFiles/edit_cache.dir
 /home/crane/dev/mlir_toy/build/CMakeFiles/rebuild_cache.dir
+/home/crane/dev/mlir_toy/build/toy/CMakeFiles/OpsIncGen.dir
 /home/crane/dev/mlir_toy/build/toy/CMakeFiles/toyc.dir
 /home/crane/dev/mlir_toy/build/toy/CMakeFiles/edit_cache.dir
 /home/crane/dev/mlir_toy/build/toy/CMakeFiles/rebuild_cache.dir

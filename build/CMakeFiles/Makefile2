@@ -94,6 +94,7 @@ toy/preinstall:
 .PHONY : toy/preinstall
 
 # Recursive "clean" directory target.
+toy/clean: toy/CMakeFiles/OpsIncGen.dir/clean
 toy/clean: toy/CMakeFiles/toyc.dir/clean
 .PHONY : toy/clean
 
@@ -306,18 +307,44 @@ CMakeFiles/mlir-doc.dir/clean:
 .PHONY : CMakeFiles/mlir-doc.dir/clean
 
 #=============================================================================
+# Target rules for target toy/CMakeFiles/OpsIncGen.dir
+
+# All Build rule for target.
+toy/CMakeFiles/OpsIncGen.dir/all:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/OpsIncGen.dir/build.make toy/CMakeFiles/OpsIncGen.dir/depend
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/OpsIncGen.dir/build.make toy/CMakeFiles/OpsIncGen.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=1,2,3,4 "Built target OpsIncGen"
+.PHONY : toy/CMakeFiles/OpsIncGen.dir/all
+
+# Build rule for subdir invocation for target.
+toy/CMakeFiles/OpsIncGen.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/OpsIncGen.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 0
+.PHONY : toy/CMakeFiles/OpsIncGen.dir/rule
+
+# Convenience name for target.
+OpsIncGen: toy/CMakeFiles/OpsIncGen.dir/rule
+.PHONY : OpsIncGen
+
+# clean rule for target.
+toy/CMakeFiles/OpsIncGen.dir/clean:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/OpsIncGen.dir/build.make toy/CMakeFiles/OpsIncGen.dir/clean
+.PHONY : toy/CMakeFiles/OpsIncGen.dir/clean
+
+#=============================================================================
 # Target rules for target toy/CMakeFiles/toyc.dir
 
 # All Build rule for target.
-toy/CMakeFiles/toyc.dir/all:
+toy/CMakeFiles/toyc.dir/all: toy/CMakeFiles/OpsIncGen.dir/all
 	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/depend
 	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=1,2,3 "Built target toyc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=5,6,7,8,9 "Built target toyc"
 .PHONY : toy/CMakeFiles/toyc.dir/all
 
 # Build rule for subdir invocation for target.
 toy/CMakeFiles/toyc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/toyc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 0
 .PHONY : toy/CMakeFiles/toyc.dir/rule

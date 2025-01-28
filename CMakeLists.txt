@@ -26,5 +26,4 @@ add_link_options(-fsanitize=address)
 add_compile_options(-fsanitize=undefined)
 add_link_options(-fsanitize=undefined)
 
-# add_subdirectory(ch1_io)
 add_subdirectory(toy)

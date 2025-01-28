@@ -1,0 +1,12 @@
+--- !FileInfo:
+  filepath: "/home/crane/dev/mlir_toy/toy/Ops.td"
+  includes: "/home/crane/dev/mlir_toy/toy;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir_toy/toy/include;/home/crane/dev/mlir_toy/build/toy/generated/include;/home/crane/dev/mlir_toy/build/toy/generated/src"
+--- !FileInfo:
+  filepath: "/home/crane/dev/mlir_toy/toy/Ops.td"
+  includes: "/home/crane/dev/mlir_toy/toy;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir_toy/toy/include;/home/crane/dev/mlir_toy/build/toy/generated/include;/home/crane/dev/mlir_toy/build/toy/generated/src"
+--- !FileInfo:
+  filepath: "/home/crane/dev/mlir_toy/toy/Ops.td"
+  includes: "/home/crane/dev/mlir_toy/toy;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir_toy/toy/include;/home/crane/dev/mlir_toy/build/toy/generated/include;/home/crane/dev/mlir_toy/build/toy/generated/src"
+--- !FileInfo:
+  filepath: "/home/crane/dev/mlir_toy/toy/Ops.td"
+  includes: "/home/crane/dev/mlir_toy/toy;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir-tutorial/install/include;/home/crane/dev/mlir_toy/toy/include;/home/crane/dev/mlir_toy/build/toy/generated/include;/home/crane/dev/mlir_toy/build/toy/generated/src"

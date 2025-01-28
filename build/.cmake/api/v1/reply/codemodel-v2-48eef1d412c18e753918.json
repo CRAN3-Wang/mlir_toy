@@ -19,14 +19,14 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0,
 						1,
 						2,
 						3,
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					]
 				},
 				{
@@ -41,7 +41,8 @@
 					"source" : "toy",
 					"targetIndexes" : 
 					[
-						8
+						0,
+						9
 					]
 				}
 			],
@@ -65,12 +66,20 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 1,
+					"id" : "OpsIncGen::@0c3d70fc3aceb428c19b",
+					"jsonFile" : "target-OpsIncGen-Release-ea11ef791d87390bee5a.json",
+					"name" : "OpsIncGen",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 0,
 					"id" : "RISCVTargetParserTableGen::@6890427a1f51a3e7e1df",
@@ -130,7 +139,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "toyc::@0c3d70fc3aceb428c19b",
-					"jsonFile" : "target-toyc-Release-dc142839c29744b9a584.json",
+					"jsonFile" : "target-toyc-Release-08aa7c7a4b75be95cb23.json",
 					"name" : "toyc",
 					"projectIndex" : 0
 				}

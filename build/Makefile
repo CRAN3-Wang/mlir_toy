@@ -221,6 +221,19 @@ mlir-doc/fast:
 .PHONY : mlir-doc/fast
 
 #=============================================================================
+# Target rules for targets named OpsIncGen
+
+# Build rule for target.
+OpsIncGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 OpsIncGen
+.PHONY : OpsIncGen
+
+# fast build rule for target.
+OpsIncGen/fast:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/OpsIncGen.dir/build.make toy/CMakeFiles/OpsIncGen.dir/build
+.PHONY : OpsIncGen/fast
+
+#=============================================================================
 # Target rules for targets named toyc
 
 # Build rule for target.
@@ -241,6 +254,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... OpsIncGen"
 	@echo "... RISCVTargetParserTableGen"
 	@echo "... acc_gen"
 	@echo "... intrinsics_gen"
