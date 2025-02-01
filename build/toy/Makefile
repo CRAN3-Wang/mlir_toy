@@ -145,6 +145,20 @@ ToyCombineIncGen/fast:
 .PHONY : ToyCombineIncGen/fast
 
 # Convenience name for target.
+toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/rule:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/rule
+.PHONY : toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/rule
+
+# Convenience name for target.
+ShapeInferenceInterfaceIncGen: toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/rule
+.PHONY : ShapeInferenceInterfaceIncGen
+
+# fast build rule for target.
+ShapeInferenceInterfaceIncGen/fast:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build.make toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build
+.PHONY : ShapeInferenceInterfaceIncGen/fast
+
+# Convenience name for target.
 toy/CMakeFiles/toyc.dir/rule:
 	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/toyc.dir/rule
 .PHONY : toy/CMakeFiles/toyc.dir/rule
@@ -230,6 +244,30 @@ src/MLIRGen.cpp.s:
 	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/MLIRGen.cpp.s
 .PHONY : src/MLIRGen.cpp.s
 
+src/ShapeInferencePass.o: src/ShapeInferencePass.cpp.o
+.PHONY : src/ShapeInferencePass.o
+
+# target to build an object file
+src/ShapeInferencePass.cpp.o:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/ShapeInferencePass.cpp.o
+.PHONY : src/ShapeInferencePass.cpp.o
+
+src/ShapeInferencePass.i: src/ShapeInferencePass.cpp.i
+.PHONY : src/ShapeInferencePass.i
+
+# target to preprocess a source file
+src/ShapeInferencePass.cpp.i:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/ShapeInferencePass.cpp.i
+.PHONY : src/ShapeInferencePass.cpp.i
+
+src/ShapeInferencePass.s: src/ShapeInferencePass.cpp.s
+.PHONY : src/ShapeInferencePass.s
+
+# target to generate assembly for a file
+src/ShapeInferencePass.cpp.s:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/ShapeInferencePass.cpp.s
+.PHONY : src/ShapeInferencePass.cpp.s
+
 src/ToyCombine.o: src/ToyCombine.cpp.o
 .PHONY : src/ToyCombine.o
 
@@ -287,6 +325,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... OpsIncGen"
+	@echo "... ShapeInferenceInterfaceIncGen"
 	@echo "... ToyCombineIncGen"
 	@echo "... toyc"
 	@echo "... src/AST.o"
@@ -298,6 +337,9 @@ help:
 	@echo "... src/MLIRGen.o"
 	@echo "... src/MLIRGen.i"
 	@echo "... src/MLIRGen.s"
+	@echo "... src/ShapeInferencePass.o"
+	@echo "... src/ShapeInferencePass.i"
+	@echo "... src/ShapeInferencePass.s"
 	@echo "... src/ToyCombine.o"
 	@echo "... src/ToyCombine.i"
 	@echo "... src/ToyCombine.s"

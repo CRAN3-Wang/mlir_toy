@@ -11,9 +11,7 @@ file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${HEADER_OUTPUT_DIR})
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${SOURCE_OUTPUT_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/${GENERATED_OUTPUT_DIR})
 
-set(LLVM_TARGET_DEFINITIONS ${CMAKE_CURRENT_SOURCE_DIR}/Ops.td)
-message(STATUS "TableGen input file: ${LLVM_TARGET_DEFINITIONS}")
-
+set(LLVM_TARGET_DEFINITIONS Ops.td)
 mlir_tablegen(${HEADER_OUTPUT_DIR}/Ops.h.inc -gen-op-decls)
 mlir_tablegen(${SOURCE_OUTPUT_DIR}/Ops.cpp.inc -gen-op-defs)
 mlir_tablegen(${HEADER_OUTPUT_DIR}/Dialect.h.inc -gen-dialect-decls)
@@ -24,9 +22,15 @@ set(LLVM_TARGET_DEFINITIONS ToyCombine.td)
 mlir_tablegen(${GENERATED_OUTPUT_DIR}/ToyCombine.inc -gen-rewriters)
 add_public_tablegen_target(ToyCombineIncGen)
 
-add_executable(toyc src/toyc.cpp src/AST.cpp src/Dialect.cpp src/MLIRGen.cpp src/ToyCombine.cpp)
+set(LLVM_TARGET_DEFINITIONS ShapeInferenceInterface.td)
+mlir_tablegen(${HEADER_OUTPUT_DIR}/ShapeInferenceOpInterfaces.h.inc -gen-op-interface-decls)
+mlir_tablegen(${SOURCE_OUTPUT_DIR}/ShapeInferenceOpInterfaces.cpp.inc -gen-op-interface-defs)
+add_public_tablegen_target(ShapeInferenceInterfaceIncGen)
+
+add_executable(toyc src/toyc.cpp src/AST.cpp src/Dialect.cpp src/MLIRGen.cpp src/ToyCombine.cpp src/ShapeInferencePass.cpp)
 add_dependencies(toyc OpsIncGen)
 add_dependencies(toyc ToyCombineIncGen)
+add_dependencies(toyc ShapeInferenceInterfaceIncGen)
 
 llvm_update_compile_flags(toyc)
 target_link_libraries(
@@ -37,6 +41,7 @@ target_link_libraries(
           MLIRPass
           MLIRFunctionInterfaces
           MLIRSideEffectInterfaces
-          MLIRTransforms)
+          MLIRTransforms
+          MLIRCastInterfaces)
 
 mlir_check_link_libraries(toyc)

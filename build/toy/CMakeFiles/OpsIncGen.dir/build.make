@@ -77,6 +77,7 @@ toy/CMakeFiles/OpsIncGen: toy/generated/src/Dialect.cpp.inc
 
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/include/Dialect.h.inc: ../toy/Ops.td
+toy/generated/include/Dialect.h.inc: ../toy/ShapeInferenceInterface.td
 toy/generated/include/Dialect.h.inc: ../toy/ToyCombine.td
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/include/Dialect.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
@@ -127,6 +128,7 @@ toy/generated/include/Dialect.h.inc: ../toy/Ops.td
 
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/include/Ops.h.inc: ../toy/Ops.td
+toy/generated/include/Ops.h.inc: ../toy/ShapeInferenceInterface.td
 toy/generated/include/Ops.h.inc: ../toy/ToyCombine.td
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/include/Ops.h.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
@@ -177,6 +179,7 @@ toy/generated/include/Ops.h.inc: ../toy/Ops.td
 
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/src/Dialect.cpp.inc: ../toy/Ops.td
+toy/generated/src/Dialect.cpp.inc: ../toy/ShapeInferenceInterface.td
 toy/generated/src/Dialect.cpp.inc: ../toy/ToyCombine.td
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/src/Dialect.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
@@ -227,6 +230,7 @@ toy/generated/src/Dialect.cpp.inc: ../toy/Ops.td
 
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/src/Ops.cpp.inc: ../toy/Ops.td
+toy/generated/src/Ops.cpp.inc: ../toy/ShapeInferenceInterface.td
 toy/generated/src/Ops.cpp.inc: ../toy/ToyCombine.td
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/src/Ops.cpp.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td

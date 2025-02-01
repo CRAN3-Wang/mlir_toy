@@ -1,8 +1,11 @@
 # Hashes of file build rules.
 8ea21ae6a1d1cd43c41c5677d8b87639 toy/CMakeFiles/OpsIncGen
+8ea21ae6a1d1cd43c41c5677d8b87639 toy/CMakeFiles/ShapeInferenceInterfaceIncGen
 8ea21ae6a1d1cd43c41c5677d8b87639 toy/CMakeFiles/ToyCombineIncGen
 40a4454bec59abc8090513cc7ef847f2 toy/generated/ToyCombine.inc
 faa7e3ba975f00514a3cb2c3d0ed94a0 toy/generated/include/Dialect.h.inc
 32ecf13b84eabad401a0f487a1306e9d toy/generated/include/Ops.h.inc
+8082e8044c4b677a3dda22278d8d3a4d toy/generated/include/ShapeInferenceOpInterfaces.h.inc
 9f1bdc636f43fa05f13d6a867b437ffb toy/generated/src/Dialect.cpp.inc
 68132b59047d7771f74cd27482411aa6 toy/generated/src/Ops.cpp.inc
+009bbfcb2360861377529a6ab579ecd0 toy/generated/src/ShapeInferenceOpInterfaces.cpp.inc

@@ -10,6 +10,7 @@
 #undef GET_OP_LIST
 
 ::mlir::toy::AddOp,
+::mlir::toy::CastOp,
 ::mlir::toy::ConstantOp,
 ::mlir::toy::FuncOp,
 ::mlir::toy::GenericCallOp,
@@ -261,6 +262,187 @@ void AddOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstan
 } // namespace toy
 } // namespace mlir
 MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::toy::AddOp)
+
+namespace mlir {
+namespace toy {
+
+//===----------------------------------------------------------------------===//
+// ::mlir::toy::CastOp definitions
+//===----------------------------------------------------------------------===//
+
+namespace detail {
+CastOpGenericAdaptorBase::CastOpGenericAdaptorBase(::mlir::DictionaryAttr attrs, const ::mlir::EmptyProperties &properties, ::mlir::RegionRange regions) : odsAttrs(attrs), odsRegions(regions) {  if (odsAttrs)
+    odsOpName.emplace("toy.cast", odsAttrs.getContext());
+}
+
+CastOpGenericAdaptorBase::CastOpGenericAdaptorBase(CastOp op) : CastOpGenericAdaptorBase(op->getAttrDictionary(), op.getProperties(), op->getRegions()) {}
+
+std::pair<unsigned, unsigned> CastOpGenericAdaptorBase::getODSOperandIndexAndLength(unsigned index, unsigned odsOperandsSize) {
+  return {index, 1};
+}
+
+::mlir::DictionaryAttr CastOpGenericAdaptorBase::getAttributes() {
+  return odsAttrs;
+}
+
+} // namespace detail
+CastOpAdaptor::CastOpAdaptor(CastOp op) : CastOpGenericAdaptor(op->getOperands(), op) {}
+
+::mlir::LogicalResult CastOpAdaptor::verify(::mlir::Location loc) {
+  return ::mlir::success();
+}
+
+std::pair<unsigned, unsigned> CastOp::getODSOperandIndexAndLength(unsigned index) {
+  return {index, 1};
+}
+
+::mlir::Operation::operand_range CastOp::getODSOperands(unsigned index) {
+  auto valueRange = getODSOperandIndexAndLength(index);
+  return {std::next(getOperation()->operand_begin(), valueRange.first),
+           std::next(getOperation()->operand_begin(), valueRange.first + valueRange.second)};
+}
+
+::mlir::TypedValue<::mlir::TensorType> CastOp::getInput() {
+  return ::llvm::cast<::mlir::TypedValue<::mlir::TensorType>>(*getODSOperands(0).begin());
+}
+
+::mlir::MutableOperandRange CastOp::getInputMutable() {
+  auto range = getODSOperandIndexAndLength(0);
+  auto mutableRange = ::mlir::MutableOperandRange(getOperation(), range.first, range.second);
+  return mutableRange;
+}
+
+std::pair<unsigned, unsigned> CastOp::getODSResultIndexAndLength(unsigned index) {
+  return {index, 1};
+}
+
+::mlir::Operation::result_range CastOp::getODSResults(unsigned index) {
+  auto valueRange = getODSResultIndexAndLength(index);
+  return {std::next(getOperation()->result_begin(), valueRange.first),
+           std::next(getOperation()->result_begin(), valueRange.first + valueRange.second)};
+}
+
+::mlir::TypedValue<::mlir::TensorType> CastOp::getOutput() {
+  return ::llvm::cast<::mlir::TypedValue<::mlir::TensorType>>(*getODSResults(0).begin());
+}
+
+void CastOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::Type output, ::mlir::Value input) {
+  odsState.addOperands(input);
+  odsState.addTypes(output);
+}
+
+void CastOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::Value input) {
+  odsState.addOperands(input);
+  assert(resultTypes.size() == 1u && "mismatched number of results");
+  odsState.addTypes(resultTypes);
+}
+
+void CastOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::ValueRange operands, ::llvm::ArrayRef<::mlir::NamedAttribute> attributes) {
+  assert(operands.size() == 1u && "mismatched number of parameters");
+  odsState.addOperands(operands);
+  odsState.addAttributes(attributes);
+  assert(resultTypes.size() == 1u && "mismatched number of return types");
+  odsState.addTypes(resultTypes);
+}
+
+::mlir::LogicalResult CastOp::verifyInvariantsImpl() {
+  {
+    unsigned index = 0; (void)index;
+    auto valueGroup0 = getODSOperands(0);
+
+    for (auto v : valueGroup0) {
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops0(*this, v.getType(), "operand", index++)))
+        return ::mlir::failure();
+    }
+  }
+  {
+    unsigned index = 0; (void)index;
+    auto valueGroup0 = getODSResults(0);
+
+    for (auto v : valueGroup0) {
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops0(*this, v.getType(), "result", index++)))
+        return ::mlir::failure();
+    }
+  }
+  return ::mlir::success();
+}
+
+::mlir::LogicalResult CastOp::verifyInvariants() {
+  return verifyInvariantsImpl();
+}
+
+::mlir::ParseResult CastOp::parse(::mlir::OpAsmParser &parser, ::mlir::OperationState &result) {
+  ::mlir::OpAsmParser::UnresolvedOperand inputRawOperands[1];
+  ::llvm::ArrayRef<::mlir::OpAsmParser::UnresolvedOperand> inputOperands(inputRawOperands);  ::llvm::SMLoc inputOperandsLoc;
+  (void)inputOperandsLoc;
+  ::mlir::Type inputRawTypes[1];
+  ::llvm::ArrayRef<::mlir::Type> inputTypes(inputRawTypes);
+  ::mlir::Type outputRawTypes[1];
+  ::llvm::ArrayRef<::mlir::Type> outputTypes(outputRawTypes);
+
+  inputOperandsLoc = parser.getCurrentLocation();
+  if (parser.parseOperand(inputRawOperands[0]))
+    return ::mlir::failure();
+  {
+    auto loc = parser.getCurrentLocation();(void)loc;
+    if (parser.parseOptionalAttrDict(result.attributes))
+      return ::mlir::failure();
+  }
+  if (parser.parseColon())
+    return ::mlir::failure();
+
+  {
+    ::mlir::TensorType type;
+    if (parser.parseCustomTypeWithFallback(type))
+      return ::mlir::failure();
+    inputRawTypes[0] = type;
+  }
+  if (parser.parseKeyword("to"))
+    return ::mlir::failure();
+
+  {
+    ::mlir::TensorType type;
+    if (parser.parseCustomTypeWithFallback(type))
+      return ::mlir::failure();
+    outputRawTypes[0] = type;
+  }
+  result.addTypes(outputTypes);
+  if (parser.resolveOperands(inputOperands, inputTypes, inputOperandsLoc, result.operands))
+    return ::mlir::failure();
+  return ::mlir::success();
+}
+
+void CastOp::print(::mlir::OpAsmPrinter &_odsPrinter) {
+  _odsPrinter << ' ';
+  _odsPrinter << getInput();
+  ::llvm::SmallVector<::llvm::StringRef, 2> elidedAttrs;
+  _odsPrinter.printOptionalAttrDict((*this)->getAttrs(), elidedAttrs);
+  _odsPrinter << ' ' << ":";
+  _odsPrinter << ' ';
+  {
+    auto type = getInput().getType();
+    if (auto validType = ::llvm::dyn_cast<::mlir::TensorType>(type))
+      _odsPrinter.printStrippedAttrOrType(validType);
+   else
+     _odsPrinter << type;
+  }
+  _odsPrinter << ' ' << "to";
+  _odsPrinter << ' ';
+  {
+    auto type = getOutput().getType();
+    if (auto validType = ::llvm::dyn_cast<::mlir::TensorType>(type))
+      _odsPrinter.printStrippedAttrOrType(validType);
+   else
+     _odsPrinter << type;
+  }
+}
+
+void CastOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects) {
+}
+
+} // namespace toy
+} // namespace mlir
+MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::toy::CastOp)
 
 namespace mlir {
 namespace toy {

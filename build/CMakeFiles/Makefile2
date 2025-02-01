@@ -96,6 +96,7 @@ toy/preinstall:
 # Recursive "clean" directory target.
 toy/clean: toy/CMakeFiles/OpsIncGen.dir/clean
 toy/clean: toy/CMakeFiles/ToyCombineIncGen.dir/clean
+toy/clean: toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/clean
 toy/clean: toy/CMakeFiles/toyc.dir/clean
 .PHONY : toy/clean
 
@@ -340,7 +341,7 @@ toy/CMakeFiles/OpsIncGen.dir/clean:
 toy/CMakeFiles/ToyCombineIncGen.dir/all: toy/CMakeFiles/OpsIncGen.dir/all
 	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ToyCombineIncGen.dir/build.make toy/CMakeFiles/ToyCombineIncGen.dir/depend
 	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ToyCombineIncGen.dir/build.make toy/CMakeFiles/ToyCombineIncGen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=5 "Built target ToyCombineIncGen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=7 "Built target ToyCombineIncGen"
 .PHONY : toy/CMakeFiles/ToyCombineIncGen.dir/all
 
 # Build rule for subdir invocation for target.
@@ -360,19 +361,47 @@ toy/CMakeFiles/ToyCombineIncGen.dir/clean:
 .PHONY : toy/CMakeFiles/ToyCombineIncGen.dir/clean
 
 #=============================================================================
+# Target rules for target toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir
+
+# All Build rule for target.
+toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/all: toy/CMakeFiles/OpsIncGen.dir/all
+toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/all: toy/CMakeFiles/ToyCombineIncGen.dir/all
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build.make toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/depend
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build.make toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=5,6 "Built target ShapeInferenceInterfaceIncGen"
+.PHONY : toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/all
+
+# Build rule for subdir invocation for target.
+toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 0
+.PHONY : toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/rule
+
+# Convenience name for target.
+ShapeInferenceInterfaceIncGen: toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/rule
+.PHONY : ShapeInferenceInterfaceIncGen
+
+# clean rule for target.
+toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/clean:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build.make toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/clean
+.PHONY : toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/clean
+
+#=============================================================================
 # Target rules for target toy/CMakeFiles/toyc.dir
 
 # All Build rule for target.
 toy/CMakeFiles/toyc.dir/all: toy/CMakeFiles/OpsIncGen.dir/all
 toy/CMakeFiles/toyc.dir/all: toy/CMakeFiles/ToyCombineIncGen.dir/all
+toy/CMakeFiles/toyc.dir/all: toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/all
 	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/depend
 	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=6,7,8,9,10,11 "Built target toyc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/crane/dev/mlir_toy/build/CMakeFiles --progress-num=8,9,10,11,12,13,14 "Built target toyc"
 .PHONY : toy/CMakeFiles/toyc.dir/all
 
 # Build rule for subdir invocation for target.
 toy/CMakeFiles/toyc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 toy/CMakeFiles/toyc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/crane/dev/mlir_toy/build/CMakeFiles 0
 .PHONY : toy/CMakeFiles/toyc.dir/rule

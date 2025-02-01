@@ -247,6 +247,19 @@ ToyCombineIncGen/fast:
 .PHONY : ToyCombineIncGen/fast
 
 #=============================================================================
+# Target rules for targets named ShapeInferenceInterfaceIncGen
+
+# Build rule for target.
+ShapeInferenceInterfaceIncGen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ShapeInferenceInterfaceIncGen
+.PHONY : ShapeInferenceInterfaceIncGen
+
+# fast build rule for target.
+ShapeInferenceInterfaceIncGen/fast:
+	$(MAKE) $(MAKESILENT) -f toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build.make toy/CMakeFiles/ShapeInferenceInterfaceIncGen.dir/build
+.PHONY : ShapeInferenceInterfaceIncGen/fast
+
+#=============================================================================
 # Target rules for targets named toyc
 
 # Build rule for target.
@@ -269,6 +282,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... OpsIncGen"
 	@echo "... RISCVTargetParserTableGen"
+	@echo "... ShapeInferenceInterfaceIncGen"
 	@echo "... ToyCombineIncGen"
 	@echo "... acc_gen"
 	@echo "... intrinsics_gen"

@@ -79,6 +79,7 @@ toy/CMakeFiles/ToyCombineIncGen: toy/generated/ToyCombine.inc
 
 toy/generated/ToyCombine.inc: /home/crane/dev/mlir-tutorial/install/bin/mlir-tblgen
 toy/generated/ToyCombine.inc: ../toy/Ops.td
+toy/generated/ToyCombine.inc: ../toy/ShapeInferenceInterface.td
 toy/generated/ToyCombine.inc: ../toy/ToyCombine.td
 toy/generated/ToyCombine.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/SDNodeProperties.td
 toy/generated/ToyCombine.inc: /home/crane/dev/mlir-tutorial/install/include/llvm/CodeGen/ValueTypes.td
