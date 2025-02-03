@@ -667,6 +667,7 @@ public:
   /// Returns the result types of this function.
   ArrayRef<Type> getResultTypes() { return getFunctionType().getResults(); }
 
+  /// Returns the region on the function operation that is callable.
   Region *getCallableRegion() { return &getBody(); }
 };
 } // namespace toy
@@ -1027,7 +1028,7 @@ public:
 
   std::pair<unsigned, unsigned> getODSOperandIndexAndLength(unsigned index);
   ::mlir::Operation::operand_range getODSOperands(unsigned index);
-  ::mlir::TypedValue<::mlir::TensorType> getInput();
+  ::mlir::Value getInput();
   ::mlir::MutableOperandRange getInputMutable();
   std::pair<unsigned, unsigned> getODSResultIndexAndLength(unsigned index);
   ::mlir::Operation::result_range getODSResults(unsigned index);

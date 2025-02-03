@@ -27,15 +27,29 @@ mlir_tablegen(${HEADER_OUTPUT_DIR}/ShapeInferenceOpInterfaces.h.inc -gen-op-inte
 mlir_tablegen(${SOURCE_OUTPUT_DIR}/ShapeInferenceOpInterfaces.cpp.inc -gen-op-interface-defs)
 add_public_tablegen_target(ShapeInferenceInterfaceIncGen)
 
-add_executable(toyc src/toyc.cpp src/AST.cpp src/Dialect.cpp src/MLIRGen.cpp src/ToyCombine.cpp src/ShapeInferencePass.cpp)
+add_executable(toyc 
+  src/toyc.cpp 
+  src/AST.cpp 
+  src/Dialect.cpp 
+  src/MLIRGen.cpp 
+  src/ToyCombine.cpp 
+  src/ShapeInferencePass.cpp
+  src/LowerToAffineLoops.cpp)
+
 add_dependencies(toyc OpsIncGen)
 add_dependencies(toyc ToyCombineIncGen)
 add_dependencies(toyc ShapeInferenceInterfaceIncGen)
 
 llvm_update_compile_flags(toyc)
+
+get_property(dialect_libs GLOBAL PROPERTY MLIR_DIALECT_LIBS)
+get_property(extension_libs GLOBAL PROPERTY MLIR_EXTENSION_LIBS)
+
 target_link_libraries(
   toyc
-  PRIVATE MLIRAnalysis
+  PRIVATE ${dialect_libs}
+          ${extension_libs}
+          MLIRAnalysis
           MLIRIR
           MLIRParser
           MLIRPass

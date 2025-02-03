@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/toyc.dir/src/AST.cpp.o.d"
   "CMakeFiles/toyc.dir/src/Dialect.cpp.o"
   "CMakeFiles/toyc.dir/src/Dialect.cpp.o.d"
+  "CMakeFiles/toyc.dir/src/LowerToAffineLoops.cpp.o"
+  "CMakeFiles/toyc.dir/src/LowerToAffineLoops.cpp.o.d"
   "CMakeFiles/toyc.dir/src/MLIRGen.cpp.o"
   "CMakeFiles/toyc.dir/src/MLIRGen.cpp.o.d"
   "CMakeFiles/toyc.dir/src/ShapeInferencePass.cpp.o"

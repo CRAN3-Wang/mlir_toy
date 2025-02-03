@@ -45,6 +45,16 @@ static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops0(
 static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops1(
     ::mlir::Operation *op, ::mlir::Type type, ::llvm::StringRef valueKind,
     unsigned valueIndex) {
+  if (!((((::llvm::isa<::mlir::TensorType>(type))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType()))) || (((::llvm::isa<::mlir::MemRefType>(type))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType()))))) {
+    return op->emitOpError(valueKind) << " #" << valueIndex
+        << " must be tensor of 64-bit float values or memref of 64-bit float values, but got " << type;
+  }
+  return ::mlir::success();
+}
+
+static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops2(
+    ::mlir::Operation *op, ::mlir::Type type, ::llvm::StringRef valueKind,
+    unsigned valueIndex) {
   if (!((((::llvm::isa<::mlir::RankedTensorType>(type))) && ((::llvm::cast<::mlir::ShapedType>(type).hasStaticShape()))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType())))) {
     return op->emitOpError(valueKind) << " #" << valueIndex
         << " must be statically shaped tensor of 64-bit float values, but got " << type;
@@ -1620,8 +1630,8 @@ std::pair<unsigned, unsigned> PrintOp::getODSOperandIndexAndLength(unsigned inde
            std::next(getOperation()->operand_begin(), valueRange.first + valueRange.second)};
 }
 
-::mlir::TypedValue<::mlir::TensorType> PrintOp::getInput() {
-  return ::llvm::cast<::mlir::TypedValue<::mlir::TensorType>>(*getODSOperands(0).begin());
+::mlir::Value PrintOp::getInput() {
+  return ::llvm::cast<::mlir::Value>(*getODSOperands(0).begin());
 }
 
 ::mlir::MutableOperandRange PrintOp::getInputMutable() {
@@ -1664,7 +1674,7 @@ void PrintOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mli
     auto valueGroup0 = getODSOperands(0);
 
     for (auto v : valueGroup0) {
-      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops0(*this, v.getType(), "operand", index++)))
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops1(*this, v.getType(), "operand", index++)))
         return ::mlir::failure();
     }
   }
@@ -1694,7 +1704,7 @@ void PrintOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mli
     return ::mlir::failure();
 
   {
-    ::mlir::TensorType type;
+    ::mlir::Type type;
     if (parser.parseCustomTypeWithFallback(type))
       return ::mlir::failure();
     inputRawTypes[0] = type;
@@ -1713,7 +1723,7 @@ void PrintOp::print(::mlir::OpAsmPrinter &_odsPrinter) {
   _odsPrinter << ' ';
   {
     auto type = getInput().getType();
-    if (auto validType = ::llvm::dyn_cast<::mlir::TensorType>(type))
+    if (auto validType = ::llvm::dyn_cast<::mlir::Type>(type))
       _odsPrinter.printStrippedAttrOrType(validType);
    else
      _odsPrinter << type;
@@ -1817,7 +1827,7 @@ void ReshapeOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::m
     auto valueGroup0 = getODSResults(0);
 
     for (auto v : valueGroup0) {
-      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops1(*this, v.getType(), "result", index++)))
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops2(*this, v.getType(), "result", index++)))
         return ::mlir::failure();
     }
   }

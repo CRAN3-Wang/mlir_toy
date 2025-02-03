@@ -220,6 +220,30 @@ src/Dialect.cpp.s:
 	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/Dialect.cpp.s
 .PHONY : src/Dialect.cpp.s
 
+src/LowerToAffineLoops.o: src/LowerToAffineLoops.cpp.o
+.PHONY : src/LowerToAffineLoops.o
+
+# target to build an object file
+src/LowerToAffineLoops.cpp.o:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/LowerToAffineLoops.cpp.o
+.PHONY : src/LowerToAffineLoops.cpp.o
+
+src/LowerToAffineLoops.i: src/LowerToAffineLoops.cpp.i
+.PHONY : src/LowerToAffineLoops.i
+
+# target to preprocess a source file
+src/LowerToAffineLoops.cpp.i:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/LowerToAffineLoops.cpp.i
+.PHONY : src/LowerToAffineLoops.cpp.i
+
+src/LowerToAffineLoops.s: src/LowerToAffineLoops.cpp.s
+.PHONY : src/LowerToAffineLoops.s
+
+# target to generate assembly for a file
+src/LowerToAffineLoops.cpp.s:
+	cd /home/crane/dev/mlir_toy/build && $(MAKE) $(MAKESILENT) -f toy/CMakeFiles/toyc.dir/build.make toy/CMakeFiles/toyc.dir/src/LowerToAffineLoops.cpp.s
+.PHONY : src/LowerToAffineLoops.cpp.s
+
 src/MLIRGen.o: src/MLIRGen.cpp.o
 .PHONY : src/MLIRGen.o
 
@@ -334,6 +358,9 @@ help:
 	@echo "... src/Dialect.o"
 	@echo "... src/Dialect.i"
 	@echo "... src/Dialect.s"
+	@echo "... src/LowerToAffineLoops.o"
+	@echo "... src/LowerToAffineLoops.i"
+	@echo "... src/LowerToAffineLoops.s"
 	@echo "... src/MLIRGen.o"
 	@echo "... src/MLIRGen.i"
 	@echo "... src/MLIRGen.s"
