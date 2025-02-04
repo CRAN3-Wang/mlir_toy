@@ -1,4 +1,4 @@
-set(LLVM_LINK_COMPONENTS Support)
+set(LLVM_LINK_COMPONENTS Support Support nativecodegen OrcJIT)
 
 include_directories(${CMAKE_SOURCE_DIR}/toy/include)
 
@@ -34,7 +34,8 @@ add_executable(toyc
   src/MLIRGen.cpp 
   src/ToyCombine.cpp 
   src/ShapeInferencePass.cpp
-  src/LowerToAffineLoops.cpp)
+  src/LowerToAffineLoops.cpp
+  src/LowerToLLVM.cpp)
 
 add_dependencies(toyc OpsIncGen)
 add_dependencies(toyc ToyCombineIncGen)
@@ -44,15 +45,24 @@ llvm_update_compile_flags(toyc)
 
 get_property(dialect_libs GLOBAL PROPERTY MLIR_DIALECT_LIBS)
 get_property(extension_libs GLOBAL PROPERTY MLIR_EXTENSION_LIBS)
+get_property(conversion_libs GLOBAL PROPERTY MLIR_CONVERSION_LIBS)
 
 target_link_libraries(
   toyc
   PRIVATE ${dialect_libs}
           ${extension_libs}
+          ${conversion_libs}
           MLIRAnalysis
+          MLIRBuiltinToLLVMIRTranslation
           MLIRIR
+          MLIRExecutionEngine
           MLIRParser
           MLIRPass
+          MLIRLLVMCommonConversion
+          MLIRLLVMDialect
+          MLIRLLVMToLLVMIRTranslation
+          MLIRTargetLLVMIRExport
+          MLIRMemRefDialect
           MLIRFunctionInterfaces
           MLIRSideEffectInterfaces
           MLIRTransforms
