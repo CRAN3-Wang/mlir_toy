@@ -55,6 +55,16 @@ class ReturnOp;
 } // namespace mlir
 namespace mlir {
 namespace toy {
+class StructAccessOp;
+} // namespace toy
+} // namespace mlir
+namespace mlir {
+namespace toy {
+class StructConstantOp;
+} // namespace toy
+} // namespace mlir
+namespace mlir {
+namespace toy {
 class TransposeOp;
 } // namespace toy
 } // namespace mlir
@@ -363,7 +373,7 @@ public:
 
   ::mlir::LogicalResult verify(::mlir::Location loc);
 };
-class ConstantOp : public ::mlir::Op<ConstantOp, ::mlir::OpTrait::ZeroRegions, ::mlir::OpTrait::OneResult, ::mlir::OpTrait::OneTypedResult<::mlir::TensorType>::Impl, ::mlir::OpTrait::ZeroSuccessors, ::mlir::OpTrait::ZeroOperands, ::mlir::OpTrait::OpInvariants, ::mlir::BytecodeOpInterface::Trait, ::mlir::ConditionallySpeculatable::Trait, ::mlir::OpTrait::AlwaysSpeculatableImplTrait, ::mlir::MemoryEffectOpInterface::Trait> {
+class ConstantOp : public ::mlir::Op<ConstantOp, ::mlir::OpTrait::ZeroRegions, ::mlir::OpTrait::OneResult, ::mlir::OpTrait::OneTypedResult<::mlir::TensorType>::Impl, ::mlir::OpTrait::ZeroSuccessors, ::mlir::OpTrait::ZeroOperands, ::mlir::OpTrait::OpInvariants, ::mlir::BytecodeOpInterface::Trait, ::mlir::OpTrait::ConstantLike, ::mlir::ConditionallySpeculatable::Trait, ::mlir::OpTrait::AlwaysSpeculatableImplTrait, ::mlir::MemoryEffectOpInterface::Trait, ShapeInference::Trait> {
 public:
   using Op::Op;
   using Op::print;
@@ -415,6 +425,8 @@ public:
   ::mlir::LogicalResult verifyInvariantsImpl();
   ::mlir::LogicalResult verifyInvariants();
   ::mlir::LogicalResult verify();
+  ::mlir::OpFoldResult fold(FoldAdaptor adaptor);
+  void inferShapes();
   void getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects);
 private:
   ::mlir::StringAttr getAttributeNameForIndex(unsigned index) {
@@ -667,7 +679,6 @@ public:
   /// Returns the result types of this function.
   ArrayRef<Type> getResultTypes() { return getFunctionType().getResults(); }
 
-  /// Returns the region on the function operation that is callable.
   Region *getCallableRegion() { return &getBody(); }
 };
 } // namespace toy
@@ -764,7 +775,7 @@ public:
 
   ::mlir::LogicalResult verify(::mlir::Location loc);
 };
-class GenericCallOp : public ::mlir::Op<GenericCallOp, ::mlir::OpTrait::ZeroRegions, ::mlir::OpTrait::OneResult, ::mlir::OpTrait::OneTypedResult<::mlir::TensorType>::Impl, ::mlir::OpTrait::ZeroSuccessors, ::mlir::OpTrait::VariadicOperands, ::mlir::OpTrait::OpInvariants, ::mlir::BytecodeOpInterface::Trait, ::mlir::CallOpInterface::Trait> {
+class GenericCallOp : public ::mlir::Op<GenericCallOp, ::mlir::OpTrait::ZeroRegions, ::mlir::OpTrait::OneResult, ::mlir::OpTrait::OneTypedResult<::mlir::Type>::Impl, ::mlir::OpTrait::ZeroSuccessors, ::mlir::OpTrait::VariadicOperands, ::mlir::OpTrait::OpInvariants, ::mlir::BytecodeOpInterface::Trait, ::mlir::CallOpInterface::Trait> {
 public:
   using Op::Op;
   using Op::print;
@@ -1245,6 +1256,328 @@ public:
 } // namespace toy
 } // namespace mlir
 MLIR_DECLARE_EXPLICIT_TYPE_ID(::mlir::toy::ReturnOp)
+
+namespace mlir {
+namespace toy {
+
+//===----------------------------------------------------------------------===//
+// ::mlir::toy::StructAccessOp declarations
+//===----------------------------------------------------------------------===//
+
+namespace detail {
+class StructAccessOpGenericAdaptorBase {
+public:
+  struct Properties {
+    using indexTy = ::mlir::IntegerAttr;
+    indexTy index;
+
+    auto getIndex() {
+      auto &propStorage = this->index;
+      return ::llvm::cast<::mlir::IntegerAttr>(propStorage);
+    }
+    void setIndex(const ::mlir::IntegerAttr &propValue) {
+      this->index = propValue;
+    }
+    bool operator==(const Properties &rhs) const {
+      return 
+        rhs.index == this->index &&
+        true;
+    }
+    bool operator!=(const Properties &rhs) const {
+      return !(*this == rhs);
+    }
+  };
+protected:
+  ::mlir::DictionaryAttr odsAttrs;
+  ::std::optional<::mlir::OperationName> odsOpName;
+  Properties properties;
+  ::mlir::RegionRange odsRegions;
+public:
+  StructAccessOpGenericAdaptorBase(::mlir::DictionaryAttr attrs = nullptr, const Properties &properties = {}, ::mlir::RegionRange regions = {});
+
+  StructAccessOpGenericAdaptorBase(StructAccessOp op);
+
+  std::pair<unsigned, unsigned> getODSOperandIndexAndLength(unsigned index, unsigned odsOperandsSize);
+  const Properties &getProperties() {
+    return properties;
+  }
+
+  ::mlir::DictionaryAttr getAttributes();
+  ::mlir::IntegerAttr getIndexAttr();
+  uint64_t getIndex();
+};
+} // namespace detail
+template <typename RangeT>
+class StructAccessOpGenericAdaptor : public detail::StructAccessOpGenericAdaptorBase {
+  using ValueT = ::llvm::detail::ValueOfRange<RangeT>;
+  using Base = detail::StructAccessOpGenericAdaptorBase;
+public:
+  StructAccessOpGenericAdaptor(RangeT values, ::mlir::DictionaryAttr attrs = nullptr, const Properties &properties = {}, ::mlir::RegionRange regions = {}) : Base(attrs, properties, regions), odsOperands(values) {}
+
+  StructAccessOpGenericAdaptor(RangeT values, ::mlir::DictionaryAttr attrs, ::mlir::OpaqueProperties properties, ::mlir::RegionRange regions = {}) : StructAccessOpGenericAdaptor(values, attrs, (properties ? *properties.as<Properties *>() : Properties{}), regions) {}
+
+  template <typename LateInst = StructAccessOp, typename = std::enable_if_t<std::is_same_v<LateInst, StructAccessOp>>>
+  StructAccessOpGenericAdaptor(RangeT values, LateInst op) : Base(op), odsOperands(values) {}
+
+  std::pair<unsigned, unsigned> getODSOperandIndexAndLength(unsigned index) {
+    return Base::getODSOperandIndexAndLength(index, odsOperands.size());
+  }
+
+  RangeT getODSOperands(unsigned index) {
+    auto valueRange = getODSOperandIndexAndLength(index);
+    return {std::next(odsOperands.begin(), valueRange.first),
+             std::next(odsOperands.begin(), valueRange.first + valueRange.second)};
+  }
+
+  ValueT getInput() {
+    return (*getODSOperands(0).begin());
+  }
+
+  RangeT getOperands() {
+    return odsOperands;
+  }
+
+private:
+  RangeT odsOperands;
+};
+class StructAccessOpAdaptor : public StructAccessOpGenericAdaptor<::mlir::ValueRange> {
+public:
+  using StructAccessOpGenericAdaptor::StructAccessOpGenericAdaptor;
+  StructAccessOpAdaptor(StructAccessOp op);
+
+  ::mlir::LogicalResult verify(::mlir::Location loc);
+};
+class StructAccessOp : public ::mlir::Op<StructAccessOp, ::mlir::OpTrait::ZeroRegions, ::mlir::OpTrait::OneResult, ::mlir::OpTrait::OneTypedResult<::mlir::Type>::Impl, ::mlir::OpTrait::ZeroSuccessors, ::mlir::OpTrait::OneOperand, ::mlir::OpTrait::OpInvariants, ::mlir::BytecodeOpInterface::Trait, ::mlir::ConditionallySpeculatable::Trait, ::mlir::OpTrait::AlwaysSpeculatableImplTrait, ::mlir::MemoryEffectOpInterface::Trait> {
+public:
+  using Op::Op;
+  using Op::print;
+  using Adaptor = StructAccessOpAdaptor;
+  template <typename RangeT>
+  using GenericAdaptor = StructAccessOpGenericAdaptor<RangeT>;
+  using FoldAdaptor = GenericAdaptor<::llvm::ArrayRef<::mlir::Attribute>>;
+  using Properties = FoldAdaptor::Properties;
+  static ::llvm::ArrayRef<::llvm::StringRef> getAttributeNames() {
+    static ::llvm::StringRef attrNames[] = {::llvm::StringRef("index")};
+    return ::llvm::ArrayRef(attrNames);
+  }
+
+  ::mlir::StringAttr getIndexAttrName() {
+    return getAttributeNameForIndex(0);
+  }
+
+  static ::mlir::StringAttr getIndexAttrName(::mlir::OperationName name) {
+    return getAttributeNameForIndex(name, 0);
+  }
+
+  static constexpr ::llvm::StringLiteral getOperationName() {
+    return ::llvm::StringLiteral("toy.struct_access");
+  }
+
+  std::pair<unsigned, unsigned> getODSOperandIndexAndLength(unsigned index);
+  ::mlir::Operation::operand_range getODSOperands(unsigned index);
+  ::mlir::Value getInput();
+  ::mlir::MutableOperandRange getInputMutable();
+  std::pair<unsigned, unsigned> getODSResultIndexAndLength(unsigned index);
+  ::mlir::Operation::result_range getODSResults(unsigned index);
+  ::mlir::Value getOutput();
+  static ::mlir::LogicalResult setPropertiesFromAttr(Properties &prop, ::mlir::Attribute attr, ::llvm::function_ref<::mlir::InFlightDiagnostic &()> getDiag);
+  static ::mlir::Attribute getPropertiesAsAttr(::mlir::MLIRContext *ctx, const Properties &prop);
+  static llvm::hash_code computePropertiesHash(const Properties &prop);
+  static std::optional<mlir::Attribute> getInherentAttr(::mlir::MLIRContext *ctx, const Properties &prop, llvm::StringRef name);
+  static void setInherentAttr(Properties &prop, llvm::StringRef name, mlir::Attribute value);
+  static void populateInherentAttrs(::mlir::MLIRContext *ctx, const Properties &prop, ::mlir::NamedAttrList &attrs);
+  static ::mlir::LogicalResult verifyInherentAttrs(::mlir::OperationName opName, ::mlir::NamedAttrList &attrs, llvm::function_ref<::mlir::InFlightDiagnostic()> getDiag);
+  static ::mlir::LogicalResult readProperties(::mlir::DialectBytecodeReader &reader, ::mlir::OperationState &state);
+  void writeProperties(::mlir::DialectBytecodeWriter &writer);
+  ::mlir::IntegerAttr getIndexAttr();
+  uint64_t getIndex();
+  void setIndexAttr(::mlir::IntegerAttr attr);
+  void setIndex(uint64_t attrValue);
+  static void build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, Value input, size_t index);
+  static void build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::Type output, ::mlir::Value input, ::mlir::IntegerAttr index);
+  static void build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::Value input, ::mlir::IntegerAttr index);
+  static void build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::Type output, ::mlir::Value input, uint64_t index);
+  static void build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::Value input, uint64_t index);
+  static void build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::ValueRange operands, ::llvm::ArrayRef<::mlir::NamedAttribute> attributes = {});
+  ::mlir::LogicalResult verifyInvariantsImpl();
+  ::mlir::LogicalResult verifyInvariants();
+  ::mlir::LogicalResult verify();
+  ::mlir::OpFoldResult fold(FoldAdaptor adaptor);
+  static ::mlir::ParseResult parse(::mlir::OpAsmParser &parser, ::mlir::OperationState &result);
+  void print(::mlir::OpAsmPrinter &_odsPrinter);
+  void getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects);
+private:
+  ::mlir::StringAttr getAttributeNameForIndex(unsigned index) {
+    return getAttributeNameForIndex((*this)->getName(), index);
+  }
+
+  static ::mlir::StringAttr getAttributeNameForIndex(::mlir::OperationName name, unsigned index) {
+    assert(index < 1 && "invalid attribute index");
+    assert(name.getStringRef() == getOperationName() && "invalid operation name");
+    return name.getAttributeNames()[index];
+  }
+
+public:
+};
+} // namespace toy
+} // namespace mlir
+MLIR_DECLARE_EXPLICIT_TYPE_ID(::mlir::toy::StructAccessOp)
+
+namespace mlir {
+namespace toy {
+
+//===----------------------------------------------------------------------===//
+// ::mlir::toy::StructConstantOp declarations
+//===----------------------------------------------------------------------===//
+
+namespace detail {
+class StructConstantOpGenericAdaptorBase {
+public:
+  struct Properties {
+    using valueTy = ::mlir::ArrayAttr;
+    valueTy value;
+
+    auto getValue() {
+      auto &propStorage = this->value;
+      return ::llvm::cast<::mlir::ArrayAttr>(propStorage);
+    }
+    void setValue(const ::mlir::ArrayAttr &propValue) {
+      this->value = propValue;
+    }
+    bool operator==(const Properties &rhs) const {
+      return 
+        rhs.value == this->value &&
+        true;
+    }
+    bool operator!=(const Properties &rhs) const {
+      return !(*this == rhs);
+    }
+  };
+protected:
+  ::mlir::DictionaryAttr odsAttrs;
+  ::std::optional<::mlir::OperationName> odsOpName;
+  Properties properties;
+  ::mlir::RegionRange odsRegions;
+public:
+  StructConstantOpGenericAdaptorBase(::mlir::DictionaryAttr attrs = nullptr, const Properties &properties = {}, ::mlir::RegionRange regions = {});
+
+  StructConstantOpGenericAdaptorBase(StructConstantOp op);
+
+  std::pair<unsigned, unsigned> getODSOperandIndexAndLength(unsigned index, unsigned odsOperandsSize);
+  const Properties &getProperties() {
+    return properties;
+  }
+
+  ::mlir::DictionaryAttr getAttributes();
+  ::mlir::ArrayAttr getValueAttr();
+  ::mlir::ArrayAttr getValue();
+};
+} // namespace detail
+template <typename RangeT>
+class StructConstantOpGenericAdaptor : public detail::StructConstantOpGenericAdaptorBase {
+  using ValueT = ::llvm::detail::ValueOfRange<RangeT>;
+  using Base = detail::StructConstantOpGenericAdaptorBase;
+public:
+  StructConstantOpGenericAdaptor(RangeT values, ::mlir::DictionaryAttr attrs = nullptr, const Properties &properties = {}, ::mlir::RegionRange regions = {}) : Base(attrs, properties, regions), odsOperands(values) {}
+
+  StructConstantOpGenericAdaptor(RangeT values, ::mlir::DictionaryAttr attrs, ::mlir::OpaqueProperties properties, ::mlir::RegionRange regions = {}) : StructConstantOpGenericAdaptor(values, attrs, (properties ? *properties.as<Properties *>() : Properties{}), regions) {}
+
+  template <typename LateInst = StructConstantOp, typename = std::enable_if_t<std::is_same_v<LateInst, StructConstantOp>>>
+  StructConstantOpGenericAdaptor(RangeT values, LateInst op) : Base(op), odsOperands(values) {}
+
+  std::pair<unsigned, unsigned> getODSOperandIndexAndLength(unsigned index) {
+    return Base::getODSOperandIndexAndLength(index, odsOperands.size());
+  }
+
+  RangeT getODSOperands(unsigned index) {
+    auto valueRange = getODSOperandIndexAndLength(index);
+    return {std::next(odsOperands.begin(), valueRange.first),
+             std::next(odsOperands.begin(), valueRange.first + valueRange.second)};
+  }
+
+  RangeT getOperands() {
+    return odsOperands;
+  }
+
+private:
+  RangeT odsOperands;
+};
+class StructConstantOpAdaptor : public StructConstantOpGenericAdaptor<::mlir::ValueRange> {
+public:
+  using StructConstantOpGenericAdaptor::StructConstantOpGenericAdaptor;
+  StructConstantOpAdaptor(StructConstantOp op);
+
+  ::mlir::LogicalResult verify(::mlir::Location loc);
+};
+class StructConstantOp : public ::mlir::Op<StructConstantOp, ::mlir::OpTrait::ZeroRegions, ::mlir::OpTrait::OneResult, ::mlir::OpTrait::OneTypedResult<::mlir::Type>::Impl, ::mlir::OpTrait::ZeroSuccessors, ::mlir::OpTrait::ZeroOperands, ::mlir::OpTrait::OpInvariants, ::mlir::BytecodeOpInterface::Trait, ::mlir::OpTrait::ConstantLike, ::mlir::ConditionallySpeculatable::Trait, ::mlir::OpTrait::AlwaysSpeculatableImplTrait, ::mlir::MemoryEffectOpInterface::Trait> {
+public:
+  using Op::Op;
+  using Op::print;
+  using Adaptor = StructConstantOpAdaptor;
+  template <typename RangeT>
+  using GenericAdaptor = StructConstantOpGenericAdaptor<RangeT>;
+  using FoldAdaptor = GenericAdaptor<::llvm::ArrayRef<::mlir::Attribute>>;
+  using Properties = FoldAdaptor::Properties;
+  static ::llvm::ArrayRef<::llvm::StringRef> getAttributeNames() {
+    static ::llvm::StringRef attrNames[] = {::llvm::StringRef("value")};
+    return ::llvm::ArrayRef(attrNames);
+  }
+
+  ::mlir::StringAttr getValueAttrName() {
+    return getAttributeNameForIndex(0);
+  }
+
+  static ::mlir::StringAttr getValueAttrName(::mlir::OperationName name) {
+    return getAttributeNameForIndex(name, 0);
+  }
+
+  static constexpr ::llvm::StringLiteral getOperationName() {
+    return ::llvm::StringLiteral("toy.struct_constant");
+  }
+
+  std::pair<unsigned, unsigned> getODSOperandIndexAndLength(unsigned index);
+  ::mlir::Operation::operand_range getODSOperands(unsigned index);
+  std::pair<unsigned, unsigned> getODSResultIndexAndLength(unsigned index);
+  ::mlir::Operation::result_range getODSResults(unsigned index);
+  ::mlir::Value getOutput();
+  static ::mlir::LogicalResult setPropertiesFromAttr(Properties &prop, ::mlir::Attribute attr, ::llvm::function_ref<::mlir::InFlightDiagnostic &()> getDiag);
+  static ::mlir::Attribute getPropertiesAsAttr(::mlir::MLIRContext *ctx, const Properties &prop);
+  static llvm::hash_code computePropertiesHash(const Properties &prop);
+  static std::optional<mlir::Attribute> getInherentAttr(::mlir::MLIRContext *ctx, const Properties &prop, llvm::StringRef name);
+  static void setInherentAttr(Properties &prop, llvm::StringRef name, mlir::Attribute value);
+  static void populateInherentAttrs(::mlir::MLIRContext *ctx, const Properties &prop, ::mlir::NamedAttrList &attrs);
+  static ::mlir::LogicalResult verifyInherentAttrs(::mlir::OperationName opName, ::mlir::NamedAttrList &attrs, llvm::function_ref<::mlir::InFlightDiagnostic()> getDiag);
+  static ::mlir::LogicalResult readProperties(::mlir::DialectBytecodeReader &reader, ::mlir::OperationState &state);
+  void writeProperties(::mlir::DialectBytecodeWriter &writer);
+  ::mlir::ArrayAttr getValueAttr();
+  ::mlir::ArrayAttr getValue();
+  void setValueAttr(::mlir::ArrayAttr attr);
+  static void build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::Type output, ::mlir::ArrayAttr value);
+  static void build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::ArrayAttr value);
+  static void build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::ValueRange operands, ::llvm::ArrayRef<::mlir::NamedAttribute> attributes = {});
+  ::mlir::LogicalResult verifyInvariantsImpl();
+  ::mlir::LogicalResult verifyInvariants();
+  ::mlir::LogicalResult verify();
+  ::mlir::OpFoldResult fold(FoldAdaptor adaptor);
+  static ::mlir::ParseResult parse(::mlir::OpAsmParser &parser, ::mlir::OperationState &result);
+  void print(::mlir::OpAsmPrinter &_odsPrinter);
+  void getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects);
+private:
+  ::mlir::StringAttr getAttributeNameForIndex(unsigned index) {
+    return getAttributeNameForIndex((*this)->getName(), index);
+  }
+
+  static ::mlir::StringAttr getAttributeNameForIndex(::mlir::OperationName name, unsigned index) {
+    assert(index < 1 && "invalid attribute index");
+    assert(name.getStringRef() == getOperationName() && "invalid operation name");
+    return name.getAttributeNames()[index];
+  }
+
+public:
+};
+} // namespace toy
+} // namespace mlir
+MLIR_DECLARE_EXPLICIT_TYPE_ID(::mlir::toy::StructConstantOp)
 
 namespace mlir {
 namespace toy {

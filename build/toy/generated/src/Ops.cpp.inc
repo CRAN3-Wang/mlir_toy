@@ -18,6 +18,8 @@
 ::mlir::toy::PrintOp,
 ::mlir::toy::ReshapeOp,
 ::mlir::toy::ReturnOp,
+::mlir::toy::StructAccessOp,
+::mlir::toy::StructConstantOp,
 ::mlir::toy::TransposeOp
 #endif  // GET_OP_LIST
 
@@ -45,9 +47,9 @@ static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops0(
 static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops1(
     ::mlir::Operation *op, ::mlir::Type type, ::llvm::StringRef valueKind,
     unsigned valueIndex) {
-  if (!((((::llvm::isa<::mlir::TensorType>(type))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType()))) || (((::llvm::isa<::mlir::MemRefType>(type))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType()))))) {
+  if (!((((::llvm::isa<::mlir::TensorType>(type))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType()))) || ((::llvm::isa<StructType>(type))))) {
     return op->emitOpError(valueKind) << " #" << valueIndex
-        << " must be tensor of 64-bit float values or memref of 64-bit float values, but got " << type;
+        << " must be tensor of 64-bit float values or Toy struct type, but got " << type;
   }
   return ::mlir::success();
 }
@@ -55,9 +57,29 @@ static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops1(
 static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops2(
     ::mlir::Operation *op, ::mlir::Type type, ::llvm::StringRef valueKind,
     unsigned valueIndex) {
+  if (!((((::llvm::isa<::mlir::TensorType>(type))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType()))) || (((::llvm::isa<::mlir::MemRefType>(type))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType()))))) {
+    return op->emitOpError(valueKind) << " #" << valueIndex
+        << " must be tensor of 64-bit float values or memref of 64-bit float values, but got " << type;
+  }
+  return ::mlir::success();
+}
+
+static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops3(
+    ::mlir::Operation *op, ::mlir::Type type, ::llvm::StringRef valueKind,
+    unsigned valueIndex) {
   if (!((((::llvm::isa<::mlir::RankedTensorType>(type))) && ((::llvm::cast<::mlir::ShapedType>(type).hasStaticShape()))) && ([](::mlir::Type elementType) { return (elementType.isF64()); }(::llvm::cast<::mlir::ShapedType>(type).getElementType())))) {
     return op->emitOpError(valueKind) << " #" << valueIndex
         << " must be statically shaped tensor of 64-bit float values, but got " << type;
+  }
+  return ::mlir::success();
+}
+
+static ::mlir::LogicalResult __mlir_ods_local_type_constraint_Ops4(
+    ::mlir::Operation *op, ::mlir::Type type, ::llvm::StringRef valueKind,
+    unsigned valueIndex) {
+  if (!((::llvm::isa<StructType>(type)))) {
+    return op->emitOpError(valueKind) << " #" << valueIndex
+        << " must be Toy struct type, but got " << type;
   }
   return ::mlir::success();
 }
@@ -128,6 +150,34 @@ static ::mlir::LogicalResult __mlir_ods_local_attr_constraint_Ops4(
 static ::mlir::LogicalResult __mlir_ods_local_attr_constraint_Ops4(
     ::mlir::Operation *op, ::mlir::Attribute attr, ::llvm::StringRef attrName) {
   return __mlir_ods_local_attr_constraint_Ops4(attr, attrName, [op]() {
+    return op->emitOpError();
+  });
+}
+
+static ::mlir::LogicalResult __mlir_ods_local_attr_constraint_Ops5(
+    ::mlir::Attribute attr, ::llvm::StringRef attrName, llvm::function_ref<::mlir::InFlightDiagnostic()> getDiag) {
+  if (attr && !(((::llvm::isa<::mlir::IntegerAttr>(attr))) && ((::llvm::cast<::mlir::IntegerAttr>(attr).getType().isSignlessInteger(64)))))
+    return getDiag() << "attribute '" << attrName
+        << "' failed to satisfy constraint: 64-bit signless integer attribute";
+  return ::mlir::success();
+}
+static ::mlir::LogicalResult __mlir_ods_local_attr_constraint_Ops5(
+    ::mlir::Operation *op, ::mlir::Attribute attr, ::llvm::StringRef attrName) {
+  return __mlir_ods_local_attr_constraint_Ops5(attr, attrName, [op]() {
+    return op->emitOpError();
+  });
+}
+
+static ::mlir::LogicalResult __mlir_ods_local_attr_constraint_Ops6(
+    ::mlir::Attribute attr, ::llvm::StringRef attrName, llvm::function_ref<::mlir::InFlightDiagnostic()> getDiag) {
+  if (attr && !((::llvm::isa<::mlir::ArrayAttr>(attr))))
+    return getDiag() << "attribute '" << attrName
+        << "' failed to satisfy constraint: array attribute";
+  return ::mlir::success();
+}
+static ::mlir::LogicalResult __mlir_ods_local_attr_constraint_Ops6(
+    ::mlir::Operation *op, ::mlir::Attribute attr, ::llvm::StringRef attrName) {
+  return __mlir_ods_local_attr_constraint_Ops6(attr, attrName, [op]() {
     return op->emitOpError();
   });
 }
@@ -1381,7 +1431,7 @@ void GenericCallOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState,
     auto valueGroup0 = getODSOperands(0);
 
     for (auto v : valueGroup0) {
-      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops0(*this, v.getType(), "operand", index++)))
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops1(*this, v.getType(), "operand", index++)))
         return ::mlir::failure();
     }
   }
@@ -1390,7 +1440,7 @@ void GenericCallOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState,
     auto valueGroup0 = getODSResults(0);
 
     for (auto v : valueGroup0) {
-      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops0(*this, v.getType(), "result", index++)))
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops1(*this, v.getType(), "result", index++)))
         return ::mlir::failure();
     }
   }
@@ -1674,7 +1724,7 @@ void PrintOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mli
     auto valueGroup0 = getODSOperands(0);
 
     for (auto v : valueGroup0) {
-      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops1(*this, v.getType(), "operand", index++)))
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops2(*this, v.getType(), "operand", index++)))
         return ::mlir::failure();
     }
   }
@@ -1827,7 +1877,7 @@ void ReshapeOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::m
     auto valueGroup0 = getODSResults(0);
 
     for (auto v : valueGroup0) {
-      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops2(*this, v.getType(), "result", index++)))
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops3(*this, v.getType(), "result", index++)))
         return ::mlir::failure();
     }
   }
@@ -2013,7 +2063,7 @@ void ReturnOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::ml
     auto valueGroup0 = getODSOperands(0);
 
     for (auto v : valueGroup0) {
-      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops0(*this, v.getType(), "operand", index++)))
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops1(*this, v.getType(), "operand", index++)))
         return ::mlir::failure();
     }
   }
@@ -2070,6 +2120,612 @@ void ReturnOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectIns
 } // namespace toy
 } // namespace mlir
 MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::toy::ReturnOp)
+
+namespace mlir {
+namespace toy {
+
+//===----------------------------------------------------------------------===//
+// ::mlir::toy::StructAccessOp definitions
+//===----------------------------------------------------------------------===//
+
+namespace detail {
+StructAccessOpGenericAdaptorBase::StructAccessOpGenericAdaptorBase(::mlir::DictionaryAttr attrs, const Properties &properties, ::mlir::RegionRange regions) : odsAttrs(attrs), properties(properties), odsRegions(regions) {  if (odsAttrs)
+    odsOpName.emplace("toy.struct_access", odsAttrs.getContext());
+}
+
+StructAccessOpGenericAdaptorBase::StructAccessOpGenericAdaptorBase(StructAccessOp op) : StructAccessOpGenericAdaptorBase(op->getDiscardableAttrDictionary(), op.getProperties(), op->getRegions()) {}
+
+std::pair<unsigned, unsigned> StructAccessOpGenericAdaptorBase::getODSOperandIndexAndLength(unsigned index, unsigned odsOperandsSize) {
+  return {index, 1};
+}
+
+::mlir::DictionaryAttr StructAccessOpGenericAdaptorBase::getAttributes() {
+  return odsAttrs;
+}
+
+::mlir::IntegerAttr StructAccessOpGenericAdaptorBase::getIndexAttr() {
+  auto attr = ::llvm::cast<::mlir::IntegerAttr>(getProperties().index);
+  return attr;
+}
+
+uint64_t StructAccessOpGenericAdaptorBase::getIndex() {
+  auto attr = getIndexAttr();
+  return attr.getValue().getZExtValue();
+}
+
+} // namespace detail
+StructAccessOpAdaptor::StructAccessOpAdaptor(StructAccessOp op) : StructAccessOpGenericAdaptor(op->getOperands(), op) {}
+
+::mlir::LogicalResult StructAccessOpAdaptor::verify(::mlir::Location loc) {
+  auto tblgen_index = getProperties().index; (void)tblgen_index;
+  if (!tblgen_index) return emitError(loc, "'toy.struct_access' op ""requires attribute 'index'");
+
+  if (tblgen_index && !(((::llvm::isa<::mlir::IntegerAttr>(tblgen_index))) && ((::llvm::cast<::mlir::IntegerAttr>(tblgen_index).getType().isSignlessInteger(64)))))
+    return emitError(loc, "'toy.struct_access' op ""attribute 'index' failed to satisfy constraint: 64-bit signless integer attribute");
+  return ::mlir::success();
+}
+
+std::pair<unsigned, unsigned> StructAccessOp::getODSOperandIndexAndLength(unsigned index) {
+  return {index, 1};
+}
+
+::mlir::Operation::operand_range StructAccessOp::getODSOperands(unsigned index) {
+  auto valueRange = getODSOperandIndexAndLength(index);
+  return {std::next(getOperation()->operand_begin(), valueRange.first),
+           std::next(getOperation()->operand_begin(), valueRange.first + valueRange.second)};
+}
+
+::mlir::Value StructAccessOp::getInput() {
+  return ::llvm::cast<::mlir::Value>(*getODSOperands(0).begin());
+}
+
+::mlir::MutableOperandRange StructAccessOp::getInputMutable() {
+  auto range = getODSOperandIndexAndLength(0);
+  auto mutableRange = ::mlir::MutableOperandRange(getOperation(), range.first, range.second);
+  return mutableRange;
+}
+
+std::pair<unsigned, unsigned> StructAccessOp::getODSResultIndexAndLength(unsigned index) {
+  return {index, 1};
+}
+
+::mlir::Operation::result_range StructAccessOp::getODSResults(unsigned index) {
+  auto valueRange = getODSResultIndexAndLength(index);
+  return {std::next(getOperation()->result_begin(), valueRange.first),
+           std::next(getOperation()->result_begin(), valueRange.first + valueRange.second)};
+}
+
+::mlir::Value StructAccessOp::getOutput() {
+  return ::llvm::cast<::mlir::Value>(*getODSResults(0).begin());
+}
+
+::mlir::LogicalResult StructAccessOp::setPropertiesFromAttr(Properties &prop, ::mlir::Attribute attr, ::llvm::function_ref<::mlir::InFlightDiagnostic &()> getDiag) {
+  ::mlir::DictionaryAttr dict = ::llvm::dyn_cast<::mlir::DictionaryAttr>(attr);
+  if (!dict) {
+    getDiag() << "expected DictionaryAttr to set properties";
+    return ::mlir::failure();
+  }
+
+  {
+    auto &propStorage = prop.index;
+       auto attr = dict.get("index");
+    if (attr || /*isRequired=*/true) {
+      if (!attr) {
+        getDiag() << "expected key entry for index in DictionaryAttr to set "
+                   "Properties.";
+        return ::mlir::failure();
+      }
+      auto convertedAttr = ::llvm::dyn_cast<std::remove_reference_t<decltype(propStorage)>>(attr);
+      if (convertedAttr) {
+        propStorage = convertedAttr;
+      } else {
+        getDiag() << "Invalid attribute `index` in property conversion: " << attr;
+        return ::mlir::failure();
+      }
+    }
+  }
+  return ::mlir::success();
+}
+
+::mlir::Attribute StructAccessOp::getPropertiesAsAttr(::mlir::MLIRContext *ctx, const Properties &prop) {
+    ::mlir::SmallVector<::mlir::NamedAttribute> attrs;
+    ::mlir::Builder odsBuilder{ctx};
+
+    {
+      const auto &propStorage = prop.index;
+      if (propStorage)
+        attrs.push_back(odsBuilder.getNamedAttr("index",
+                                       propStorage));
+    }
+
+  if (!attrs.empty())
+    return odsBuilder.getDictionaryAttr(attrs);
+  return {};
+}
+
+llvm::hash_code StructAccessOp::computePropertiesHash(const Properties &prop) {
+  return llvm::hash_combine(
+    llvm::hash_value(prop.index.getAsOpaquePointer()));
+}
+
+std::optional<mlir::Attribute> StructAccessOp::getInherentAttr(::mlir::MLIRContext *ctx, const Properties &prop, llvm::StringRef name) {
+    if (name == "index")
+      return prop.index;
+  return std::nullopt;
+}
+
+void StructAccessOp::setInherentAttr(Properties &prop, llvm::StringRef name, mlir::Attribute value) {
+    if (name == "index") {
+       prop.index = ::llvm::dyn_cast_or_null<std::remove_reference_t<decltype(prop.index)>>(value);
+       return;
+    }
+}
+
+void StructAccessOp::populateInherentAttrs(::mlir::MLIRContext *ctx, const Properties &prop, ::mlir::NamedAttrList &attrs) {
+    if (prop.index) attrs.append("index", prop.index);
+}
+
+::mlir::LogicalResult StructAccessOp::verifyInherentAttrs(::mlir::OperationName opName, ::mlir::NamedAttrList &attrs, llvm::function_ref<::mlir::InFlightDiagnostic()> getDiag) {
+    {
+      ::mlir::Attribute attr = attrs.get(getIndexAttrName(opName));
+      if (attr && ::mlir::failed(__mlir_ods_local_attr_constraint_Ops5(attr, "index", getDiag)))
+        return ::mlir::failure();
+    }
+    return ::mlir::success();
+}
+
+::mlir::LogicalResult StructAccessOp::readProperties(::mlir::DialectBytecodeReader &reader, ::mlir::OperationState &state) {
+  auto &prop = state.getOrAddProperties<Properties>(); (void)prop;
+  if (::mlir::failed(reader.readAttribute(prop.index)))
+    return ::mlir::failure();
+  return ::mlir::success();
+}
+
+void StructAccessOp::writeProperties(::mlir::DialectBytecodeWriter &writer) {
+  auto &prop = getProperties(); (void)prop;
+  writer.writeAttribute(prop.index);
+}
+
+::mlir::IntegerAttr StructAccessOp::getIndexAttr() {
+  return ::llvm::cast<::mlir::IntegerAttr>(getProperties().index);
+}
+
+uint64_t StructAccessOp::getIndex() {
+  auto attr = getIndexAttr();
+  return attr.getValue().getZExtValue();
+}
+
+void StructAccessOp::setIndexAttr(::mlir::IntegerAttr attr) {
+  (*this)->setAttr(getIndexAttrName(), attr);
+}
+
+void StructAccessOp::setIndex(uint64_t attrValue) {
+  (*this)->setAttr(getIndexAttrName(), ::mlir::Builder((*this)->getContext()).getIntegerAttr(::mlir::Builder((*this)->getContext()).getIntegerType(64), attrValue));
+}
+
+void StructAccessOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::Type output, ::mlir::Value input, ::mlir::IntegerAttr index) {
+  odsState.addOperands(input);
+  odsState.getOrAddProperties<Properties>().index = index;
+  odsState.addTypes(output);
+}
+
+void StructAccessOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::Value input, ::mlir::IntegerAttr index) {
+  odsState.addOperands(input);
+  odsState.getOrAddProperties<Properties>().index = index;
+  assert(resultTypes.size() == 1u && "mismatched number of results");
+  odsState.addTypes(resultTypes);
+}
+
+void StructAccessOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::Type output, ::mlir::Value input, uint64_t index) {
+  odsState.addOperands(input);
+  odsState.getOrAddProperties<Properties>().index = odsBuilder.getIntegerAttr(odsBuilder.getIntegerType(64), index);
+  odsState.addTypes(output);
+}
+
+void StructAccessOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::Value input, uint64_t index) {
+  odsState.addOperands(input);
+  odsState.getOrAddProperties<Properties>().index = odsBuilder.getIntegerAttr(odsBuilder.getIntegerType(64), index);
+  assert(resultTypes.size() == 1u && "mismatched number of results");
+  odsState.addTypes(resultTypes);
+}
+
+void StructAccessOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::ValueRange operands, ::llvm::ArrayRef<::mlir::NamedAttribute> attributes) {
+  assert(operands.size() == 1u && "mismatched number of parameters");
+  odsState.addOperands(operands);
+  odsState.addAttributes(attributes);
+  assert(resultTypes.size() == 1u && "mismatched number of return types");
+  odsState.addTypes(resultTypes);
+}
+
+::mlir::LogicalResult StructAccessOp::verifyInvariantsImpl() {
+  auto tblgen_index = getProperties().index; (void)tblgen_index;
+  if (!tblgen_index) return emitOpError("requires attribute 'index'");
+
+  if (::mlir::failed(__mlir_ods_local_attr_constraint_Ops5(*this, tblgen_index, "index")))
+    return ::mlir::failure();
+  {
+    unsigned index = 0; (void)index;
+    auto valueGroup0 = getODSOperands(0);
+
+    for (auto v : valueGroup0) {
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops4(*this, v.getType(), "operand", index++)))
+        return ::mlir::failure();
+    }
+  }
+  {
+    unsigned index = 0; (void)index;
+    auto valueGroup0 = getODSResults(0);
+
+    for (auto v : valueGroup0) {
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops1(*this, v.getType(), "result", index++)))
+        return ::mlir::failure();
+    }
+  }
+  return ::mlir::success();
+}
+
+::mlir::LogicalResult StructAccessOp::verifyInvariants() {
+  if(::mlir::succeeded(verifyInvariantsImpl()) && ::mlir::succeeded(verify()))
+    return ::mlir::success();
+  return ::mlir::failure();
+}
+
+::mlir::ParseResult StructAccessOp::parse(::mlir::OpAsmParser &parser, ::mlir::OperationState &result) {
+  ::mlir::OpAsmParser::UnresolvedOperand inputRawOperands[1];
+  ::llvm::ArrayRef<::mlir::OpAsmParser::UnresolvedOperand> inputOperands(inputRawOperands);  ::llvm::SMLoc inputOperandsLoc;
+  (void)inputOperandsLoc;
+  ::mlir::IntegerAttr indexAttr;
+  ::mlir::Type inputRawTypes[1];
+  ::llvm::ArrayRef<::mlir::Type> inputTypes(inputRawTypes);
+  ::mlir::Type outputRawTypes[1];
+  ::llvm::ArrayRef<::mlir::Type> outputTypes(outputRawTypes);
+
+  inputOperandsLoc = parser.getCurrentLocation();
+  if (parser.parseOperand(inputRawOperands[0]))
+    return ::mlir::failure();
+  if (parser.parseLSquare())
+    return ::mlir::failure();
+
+  if (parser.parseCustomAttributeWithFallback(indexAttr, parser.getBuilder().getIntegerType(64))) {
+    return ::mlir::failure();
+  }
+  if (indexAttr) result.getOrAddProperties<StructAccessOp::Properties>().index = indexAttr;
+  if (parser.parseRSquare())
+    return ::mlir::failure();
+  {
+    auto loc = parser.getCurrentLocation();(void)loc;
+    if (parser.parseOptionalAttrDict(result.attributes))
+      return ::mlir::failure();
+    if (failed(verifyInherentAttrs(result.name, result.attributes, [&]() {
+        return parser.emitError(loc) << "'" << result.name.getStringRef() << "' op ";
+      })))
+      return ::mlir::failure();
+  }
+  if (parser.parseColon())
+    return ::mlir::failure();
+
+  {
+    ::mlir::Type type;
+    if (parser.parseCustomTypeWithFallback(type))
+      return ::mlir::failure();
+    inputRawTypes[0] = type;
+  }
+  if (parser.parseArrow())
+    return ::mlir::failure();
+
+  {
+    ::mlir::Type type;
+    if (parser.parseCustomTypeWithFallback(type))
+      return ::mlir::failure();
+    outputRawTypes[0] = type;
+  }
+  result.addTypes(outputTypes);
+  if (parser.resolveOperands(inputOperands, inputTypes, inputOperandsLoc, result.operands))
+    return ::mlir::failure();
+  return ::mlir::success();
+}
+
+void StructAccessOp::print(::mlir::OpAsmPrinter &_odsPrinter) {
+  _odsPrinter << ' ';
+  _odsPrinter << getInput();
+  _odsPrinter << "[";
+  _odsPrinter.printAttributeWithoutType(getIndexAttr());
+  _odsPrinter << "]";
+  ::llvm::SmallVector<::llvm::StringRef, 2> elidedAttrs;
+  elidedAttrs.push_back("index");
+  _odsPrinter.printOptionalAttrDict((*this)->getAttrs(), elidedAttrs);
+  _odsPrinter << ' ' << ":";
+  _odsPrinter << ' ';
+  {
+    auto type = getInput().getType();
+    if (auto validType = ::llvm::dyn_cast<::mlir::Type>(type))
+      _odsPrinter.printStrippedAttrOrType(validType);
+   else
+     _odsPrinter << type;
+  }
+  _odsPrinter << ' ' << "->";
+  _odsPrinter << ' ';
+  {
+    auto type = getOutput().getType();
+    if (auto validType = ::llvm::dyn_cast<::mlir::Type>(type))
+      _odsPrinter.printStrippedAttrOrType(validType);
+   else
+     _odsPrinter << type;
+  }
+}
+
+void StructAccessOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects) {
+}
+
+} // namespace toy
+} // namespace mlir
+MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::toy::StructAccessOp)
+
+namespace mlir {
+namespace toy {
+
+//===----------------------------------------------------------------------===//
+// ::mlir::toy::StructConstantOp definitions
+//===----------------------------------------------------------------------===//
+
+namespace detail {
+StructConstantOpGenericAdaptorBase::StructConstantOpGenericAdaptorBase(::mlir::DictionaryAttr attrs, const Properties &properties, ::mlir::RegionRange regions) : odsAttrs(attrs), properties(properties), odsRegions(regions) {  if (odsAttrs)
+    odsOpName.emplace("toy.struct_constant", odsAttrs.getContext());
+}
+
+StructConstantOpGenericAdaptorBase::StructConstantOpGenericAdaptorBase(StructConstantOp op) : StructConstantOpGenericAdaptorBase(op->getDiscardableAttrDictionary(), op.getProperties(), op->getRegions()) {}
+
+std::pair<unsigned, unsigned> StructConstantOpGenericAdaptorBase::getODSOperandIndexAndLength(unsigned index, unsigned odsOperandsSize) {
+  return {index, 1};
+}
+
+::mlir::DictionaryAttr StructConstantOpGenericAdaptorBase::getAttributes() {
+  return odsAttrs;
+}
+
+::mlir::ArrayAttr StructConstantOpGenericAdaptorBase::getValueAttr() {
+  auto attr = ::llvm::cast<::mlir::ArrayAttr>(getProperties().value);
+  return attr;
+}
+
+::mlir::ArrayAttr StructConstantOpGenericAdaptorBase::getValue() {
+  auto attr = getValueAttr();
+  return attr;
+}
+
+} // namespace detail
+StructConstantOpAdaptor::StructConstantOpAdaptor(StructConstantOp op) : StructConstantOpGenericAdaptor(op->getOperands(), op) {}
+
+::mlir::LogicalResult StructConstantOpAdaptor::verify(::mlir::Location loc) {
+  auto tblgen_value = getProperties().value; (void)tblgen_value;
+  if (!tblgen_value) return emitError(loc, "'toy.struct_constant' op ""requires attribute 'value'");
+
+  if (tblgen_value && !((::llvm::isa<::mlir::ArrayAttr>(tblgen_value))))
+    return emitError(loc, "'toy.struct_constant' op ""attribute 'value' failed to satisfy constraint: array attribute");
+  return ::mlir::success();
+}
+
+std::pair<unsigned, unsigned> StructConstantOp::getODSOperandIndexAndLength(unsigned index) {
+  return {index, 1};
+}
+
+::mlir::Operation::operand_range StructConstantOp::getODSOperands(unsigned index) {
+  auto valueRange = getODSOperandIndexAndLength(index);
+  return {std::next(getOperation()->operand_begin(), valueRange.first),
+           std::next(getOperation()->operand_begin(), valueRange.first + valueRange.second)};
+}
+
+std::pair<unsigned, unsigned> StructConstantOp::getODSResultIndexAndLength(unsigned index) {
+  return {index, 1};
+}
+
+::mlir::Operation::result_range StructConstantOp::getODSResults(unsigned index) {
+  auto valueRange = getODSResultIndexAndLength(index);
+  return {std::next(getOperation()->result_begin(), valueRange.first),
+           std::next(getOperation()->result_begin(), valueRange.first + valueRange.second)};
+}
+
+::mlir::Value StructConstantOp::getOutput() {
+  return ::llvm::cast<::mlir::Value>(*getODSResults(0).begin());
+}
+
+::mlir::LogicalResult StructConstantOp::setPropertiesFromAttr(Properties &prop, ::mlir::Attribute attr, ::llvm::function_ref<::mlir::InFlightDiagnostic &()> getDiag) {
+  ::mlir::DictionaryAttr dict = ::llvm::dyn_cast<::mlir::DictionaryAttr>(attr);
+  if (!dict) {
+    getDiag() << "expected DictionaryAttr to set properties";
+    return ::mlir::failure();
+  }
+
+  {
+    auto &propStorage = prop.value;
+       auto attr = dict.get("value");
+    if (attr || /*isRequired=*/true) {
+      if (!attr) {
+        getDiag() << "expected key entry for value in DictionaryAttr to set "
+                   "Properties.";
+        return ::mlir::failure();
+      }
+      auto convertedAttr = ::llvm::dyn_cast<std::remove_reference_t<decltype(propStorage)>>(attr);
+      if (convertedAttr) {
+        propStorage = convertedAttr;
+      } else {
+        getDiag() << "Invalid attribute `value` in property conversion: " << attr;
+        return ::mlir::failure();
+      }
+    }
+  }
+  return ::mlir::success();
+}
+
+::mlir::Attribute StructConstantOp::getPropertiesAsAttr(::mlir::MLIRContext *ctx, const Properties &prop) {
+    ::mlir::SmallVector<::mlir::NamedAttribute> attrs;
+    ::mlir::Builder odsBuilder{ctx};
+
+    {
+      const auto &propStorage = prop.value;
+      if (propStorage)
+        attrs.push_back(odsBuilder.getNamedAttr("value",
+                                       propStorage));
+    }
+
+  if (!attrs.empty())
+    return odsBuilder.getDictionaryAttr(attrs);
+  return {};
+}
+
+llvm::hash_code StructConstantOp::computePropertiesHash(const Properties &prop) {
+  return llvm::hash_combine(
+    llvm::hash_value(prop.value.getAsOpaquePointer()));
+}
+
+std::optional<mlir::Attribute> StructConstantOp::getInherentAttr(::mlir::MLIRContext *ctx, const Properties &prop, llvm::StringRef name) {
+    if (name == "value")
+      return prop.value;
+  return std::nullopt;
+}
+
+void StructConstantOp::setInherentAttr(Properties &prop, llvm::StringRef name, mlir::Attribute value) {
+    if (name == "value") {
+       prop.value = ::llvm::dyn_cast_or_null<std::remove_reference_t<decltype(prop.value)>>(value);
+       return;
+    }
+}
+
+void StructConstantOp::populateInherentAttrs(::mlir::MLIRContext *ctx, const Properties &prop, ::mlir::NamedAttrList &attrs) {
+    if (prop.value) attrs.append("value", prop.value);
+}
+
+::mlir::LogicalResult StructConstantOp::verifyInherentAttrs(::mlir::OperationName opName, ::mlir::NamedAttrList &attrs, llvm::function_ref<::mlir::InFlightDiagnostic()> getDiag) {
+    {
+      ::mlir::Attribute attr = attrs.get(getValueAttrName(opName));
+      if (attr && ::mlir::failed(__mlir_ods_local_attr_constraint_Ops6(attr, "value", getDiag)))
+        return ::mlir::failure();
+    }
+    return ::mlir::success();
+}
+
+::mlir::LogicalResult StructConstantOp::readProperties(::mlir::DialectBytecodeReader &reader, ::mlir::OperationState &state) {
+  auto &prop = state.getOrAddProperties<Properties>(); (void)prop;
+  if (::mlir::failed(reader.readAttribute(prop.value)))
+    return ::mlir::failure();
+  return ::mlir::success();
+}
+
+void StructConstantOp::writeProperties(::mlir::DialectBytecodeWriter &writer) {
+  auto &prop = getProperties(); (void)prop;
+  writer.writeAttribute(prop.value);
+}
+
+::mlir::ArrayAttr StructConstantOp::getValueAttr() {
+  return ::llvm::cast<::mlir::ArrayAttr>(getProperties().value);
+}
+
+::mlir::ArrayAttr StructConstantOp::getValue() {
+  auto attr = getValueAttr();
+  return attr;
+}
+
+void StructConstantOp::setValueAttr(::mlir::ArrayAttr attr) {
+  (*this)->setAttr(getValueAttrName(), attr);
+}
+
+void StructConstantOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::Type output, ::mlir::ArrayAttr value) {
+  odsState.getOrAddProperties<Properties>().value = value;
+  odsState.addTypes(output);
+}
+
+void StructConstantOp::build(::mlir::OpBuilder &odsBuilder, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::ArrayAttr value) {
+  odsState.getOrAddProperties<Properties>().value = value;
+  assert(resultTypes.size() == 1u && "mismatched number of results");
+  odsState.addTypes(resultTypes);
+}
+
+void StructConstantOp::build(::mlir::OpBuilder &, ::mlir::OperationState &odsState, ::mlir::TypeRange resultTypes, ::mlir::ValueRange operands, ::llvm::ArrayRef<::mlir::NamedAttribute> attributes) {
+  assert(operands.size() == 0u && "mismatched number of parameters");
+  odsState.addOperands(operands);
+  odsState.addAttributes(attributes);
+  assert(resultTypes.size() == 1u && "mismatched number of return types");
+  odsState.addTypes(resultTypes);
+}
+
+::mlir::LogicalResult StructConstantOp::verifyInvariantsImpl() {
+  auto tblgen_value = getProperties().value; (void)tblgen_value;
+  if (!tblgen_value) return emitOpError("requires attribute 'value'");
+
+  if (::mlir::failed(__mlir_ods_local_attr_constraint_Ops6(*this, tblgen_value, "value")))
+    return ::mlir::failure();
+  {
+    unsigned index = 0; (void)index;
+    auto valueGroup0 = getODSResults(0);
+
+    for (auto v : valueGroup0) {
+      if (::mlir::failed(__mlir_ods_local_type_constraint_Ops4(*this, v.getType(), "result", index++)))
+        return ::mlir::failure();
+    }
+  }
+  return ::mlir::success();
+}
+
+::mlir::LogicalResult StructConstantOp::verifyInvariants() {
+  if(::mlir::succeeded(verifyInvariantsImpl()) && ::mlir::succeeded(verify()))
+    return ::mlir::success();
+  return ::mlir::failure();
+}
+
+::mlir::ParseResult StructConstantOp::parse(::mlir::OpAsmParser &parser, ::mlir::OperationState &result) {
+  ::mlir::ArrayAttr valueAttr;
+  ::mlir::Type outputRawTypes[1];
+  ::llvm::ArrayRef<::mlir::Type> outputTypes(outputRawTypes);
+
+  if (parser.parseCustomAttributeWithFallback(valueAttr, parser.getBuilder().getType<::mlir::NoneType>())) {
+    return ::mlir::failure();
+  }
+  if (valueAttr) result.getOrAddProperties<StructConstantOp::Properties>().value = valueAttr;
+  {
+    auto loc = parser.getCurrentLocation();(void)loc;
+    if (parser.parseOptionalAttrDict(result.attributes))
+      return ::mlir::failure();
+    if (failed(verifyInherentAttrs(result.name, result.attributes, [&]() {
+        return parser.emitError(loc) << "'" << result.name.getStringRef() << "' op ";
+      })))
+      return ::mlir::failure();
+  }
+  if (parser.parseColon())
+    return ::mlir::failure();
+
+  {
+    ::mlir::Type type;
+    if (parser.parseCustomTypeWithFallback(type))
+      return ::mlir::failure();
+    outputRawTypes[0] = type;
+  }
+  result.addTypes(outputTypes);
+  return ::mlir::success();
+}
+
+void StructConstantOp::print(::mlir::OpAsmPrinter &_odsPrinter) {
+  _odsPrinter << ' ';
+  _odsPrinter.printAttributeWithoutType(getValueAttr());
+  ::llvm::SmallVector<::llvm::StringRef, 2> elidedAttrs;
+  elidedAttrs.push_back("value");
+  _odsPrinter.printOptionalAttrDict((*this)->getAttrs(), elidedAttrs);
+  _odsPrinter << ' ' << ":";
+  _odsPrinter << ' ';
+  {
+    auto type = getOutput().getType();
+    if (auto validType = ::llvm::dyn_cast<::mlir::Type>(type))
+      _odsPrinter.printStrippedAttrOrType(validType);
+   else
+     _odsPrinter << type;
+  }
+}
+
+void StructConstantOp::getEffects(::llvm::SmallVectorImpl<::mlir::SideEffects::EffectInstance<::mlir::MemoryEffects::Effect>> &effects) {
+}
+
+} // namespace toy
+} // namespace mlir
+MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::toy::StructConstantOp)
 
 namespace mlir {
 namespace toy {
